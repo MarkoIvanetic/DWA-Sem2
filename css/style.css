@@ -1,0 +1,60 @@
+html {
+  font-size: 16px;
+
+  background: #39a;
+  font-family: 'Titillium Web', sans-serif;
+}
+body {
+	
+}
+.navbar{
+	font-size: 14px;
+      position: relative;
+    min-height: 1px
+}
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 94%;
+  max-width: 1100px;
+  font-family: helvetica, sans-serif;
+}
+.content {
+  position: relative;
+  padding-top: 80px;
+}
+.content p {
+  margin-bottom: 10px;
+}
+.banner img {
+    margin-top: 59px;
+    display: block;
+    max-width:100%;
+    max-height:669px;
+    width: auto;
+    height: auto;
+}
+.wrap {
+    /* force the div to properly contain the floated images: */
+    position:relative;
+    float:left;
+    clear:none;
+    overflow:hidden;
+  }
+  .wrap img {
+    position:relative;
+    z-index:1;
+  }
+  .wrap .desc {
+    display:block;
+    position:absolute;
+    top:20%;
+    left:65%;
+    z-index:2;
+    text-align:center;
+  }
+  .desc{
+    height: 40%;
+    width: 25%;
+    background-color: blue;
+  }
