@@ -54,7 +54,23 @@ body {
     text-align:center;
   }
   .desc{
-    height: 40%;
     width: 25%;
-    background-color: blue;
   }
+  .desc h4{
+    color:#192929;
+    line-height: 1.225;
+    font-style: italic;
+  }
+  .desc h2{
+    font-size: 3vw;
+    padding: 20px 0;
+    width: 100%;
+    background-color: #192929;
+  }
+.red-button{
+  border:none;
+  line-height: 1;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #ea6060;
+}
