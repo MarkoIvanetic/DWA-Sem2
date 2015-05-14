@@ -1,11 +1,14 @@
 html {
   font-size: 16px;
-
-  background: #39a;
+  background: #fff;
+  height: 1500px; /*DELETE*/
   font-family: 'Titillium Web', sans-serif;
 }
 body {
 	
+}
+.whiterow20{
+  height: 20px;
 }
 .navbar{
 	font-size: 14px;
@@ -46,6 +49,7 @@ body {
     z-index:1;
   }
   .wrap .desc {
+      color: white;
     display:block;
     position:absolute;
     top:20%;
@@ -74,3 +78,14 @@ body {
   margin-top: 10px;
   background-color: #ea6060;
 }
+.ads-front {
+  margin-bottom: 10px;
+  height: 80px;
+  background-color: black;
+}
+.ads-front-container{
+  background-color: blue;
+}
+.ads-front:nth-of-type(odd){
+  background-color: red;
+};

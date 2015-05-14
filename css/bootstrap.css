@@ -1335,7 +1335,7 @@ mark,
   text-transform: uppercase;
 }
 .text-capitalize {
-  text-transform: capitalize;
+  text-transform: capitalize!important;
 }
 .text-muted {
   color: #777;
