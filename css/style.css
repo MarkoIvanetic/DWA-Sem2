@@ -77,15 +77,27 @@ body {
   height: 40px;
   margin-top: 10px;
   background-color: #ea6060;
+  color: white;
 }
 .ads-front {
-  margin-bottom: 10px;
-  height: 80px;
-  background-color: black;
+  margin-bottom: 40px;
+  min-height: 80px!important;
 }
 .ads-front-container{
-  background-color: blue;
+
 }
 .ads-front:nth-of-type(odd){
-  background-color: red;
-};
+
+}
+.red-button-front{
+  margin-left: 10px;
+  height: 30px;
+}
+.form *{
+  display: inline!important;
+}
+.checkbox label{
+  margin-right: 10px;
+  border: 1px solid black;
+  padding: 5px!important;
+}
