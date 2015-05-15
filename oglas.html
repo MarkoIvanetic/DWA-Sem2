@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Pašteta i Bakar</title>
+	<meta name="description" content="">
+	<meta name="author" content="Marko Ivanetić">
+	<meta name="author" content="Luka Gado">
+	<!--SCRIPTS-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
+	<!--CSS-->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="css/navigation.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700,600' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <header id="header">
+      <h1>Site Title</h1>
+      <nav id="nav">
+        <ul>
+          <li id="click"><a>HOME</a></li>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="">SERVICES</a></li>
+          <li><a href="oglas.html">PREDAJ OGLAS</a></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="content col-xs-12">
+<form class="form-horizontal col-xs-8 col-xs-offset-2">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Predaja oglasa</legend>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="ad-title">Naslov</label>
+  <div class="controls">
+    <input id="ad-title" name="ad-title" type="text" placeholder="" class="input-xlarge" required="">
+    
+  </div>
+</div>
+
+<!-- Multiple Checkboxes (inline) -->
+<div class="checkbox-group">
+  <label class="checkbox-label" for="ad-tags">Ključne riječi</label>
+  <div class="checkbox">
+    <label class="checkbox inline" for="ad-tags-0">
+      <input style="display:none" type="checkbox" name="ad-tags" id="ad-tags-0" value="Odjeća">
+      Odjeća
+    </label>
+    <label class="checkbox inline" for="ad-tags-1">
+      <input style="display:none" type="checkbox" name="ad-tags" id="ad-tags-1" value="Obuća">
+      Obuća
+    </label>
+    <label class="checkbox inline" for="ad-tags-2">
+      <input style="display:none" type="checkbox" name="ad-tags" id="ad-tags-2" value="Roblje">
+      Roblje
+    </label>
+    <label class="checkbox inline" for="ad-tags-3">
+      <input style="display:none" type="checkbox" name="ad-tags" id="ad-tags-3" value="Djeca">
+      Djeca
+    </label>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="ad-desc">Opis</label>
+  <div class="controls">                     
+    <textarea id="ad-desc" name="ad-desc" cols="50" rows="15"></textarea>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="ad-contact">Kontakt</label>
+  <div class="controls">
+    <input id="ad-contact" name="ad-contact" type="text" placeholder="0911234567" class="input-xlarge">
+    
+  </div>
+</div>
+
+<!-- File Button --> 
+<div class="control-group">
+  <label class="control-label" for="ad-image">Slika</label>
+  <div class="controls">
+    <input id="ad-image" name="ad-image" class="input-file" type="file">
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+    </div>
+  </body>
+  </html>
