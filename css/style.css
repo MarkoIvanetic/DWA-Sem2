@@ -5,7 +5,7 @@ html {
   font-family: 'Titillium Web', sans-serif;
 }
 body {
-	
+	font-size: 16px;
 }
 .whiterow20{
   height: 20px;
@@ -93,11 +93,54 @@ body {
   margin-left: 10px;
   height: 30px;
 }
-.form *{
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*FORM STYLE*/
+.form-horizontal{
+  font-size: 1.2em;
+  min-width: 480px;
+}
+legend{
+font-weight: 700;
+}
+.form {
   display: inline!important;
 }
-.checkbox label{
+input[type="file"]{
+  font-size: 0.9em;
+}
+form div{
+  margin-bottom: 20px;
+}
+.radio{
   margin-right: 10px;
   border: 1px solid black;
+  font-weight: 400;
   padding: 5px!important;
 }
+#ad-title{
+
+}
+.active-checkbox{
+  background-color: #39a;
+}
+.control-label {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 5px!important;
+}
+
+@media screen and (max-width: 767) {
+  body{
+        font-size: 14px;
+        background-color: red!important;
+  }
+}
+ 

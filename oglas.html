@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-
 	<title>Pašteta i Bakar</title>
 	<meta name="description" content="">
 	<meta name="author" content="Marko Ivanetić">
 	<meta name="author" content="Luka Gado">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--SCRIPTS-->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/script.js"></script>
+	<script src="js/JQscript.js"></script>
 	<!--CSS-->
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/normalize.css">
 	<link href="css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 	<!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -37,12 +37,10 @@
     </header>
 
     <div class="content col-xs-12">
-<form class="form-horizontal col-xs-8 col-xs-offset-2">
+<form id="mainForm" class="form-horizontal col-md-8 col-md-offset-2 col-xs-12">
 <fieldset>
-
 <!-- Form Name -->
 <legend>Predaja oglasa</legend>
-
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label" for="ad-title">Naslov</label>
@@ -51,25 +49,24 @@
     
   </div>
 </div>
-
 <!-- Multiple Checkboxes (inline) -->
-<div class="checkbox-group">
-  <label class="checkbox-label" for="ad-tags">Ključne riječi</label>
-  <div class="checkbox">
-    <label class="checkbox inline" for="ad-tags-0">
-      <input style="display:none" type="checkbox" name="ad-tags" id="ad-tags-0" value="Odjeća">
+<div class="control-group">
+  <label class="control-label" for="radios">Kategorija</label>
+  <div class="controls radio-tags">
+    <label class="radio inline unselectable" for="radios-0">
+      <input type="radio" name="radios" id="radios-0" value="odjeca" hidden>
       Odjeća
     </label>
-    <label class="checkbox inline" for="ad-tags-1">
-      <input style="display:none" type="checkbox" name="ad-tags" id="ad-tags-1" value="Obuća">
+    <label class="radio inline unselectable" for="radios-1">
+      <input type="radio" name="radios" id="radios-1" value="obuca" hidden>
       Obuća
     </label>
-    <label class="checkbox inline" for="ad-tags-2">
-      <input style="display:none" type="checkbox" name="ad-tags" id="ad-tags-2" value="Roblje">
+    <label class="radio inline unselectable" for="radios-2">
+      <input type="radio" name="radios" id="radios-2" value="3" hidden>
       Roblje
     </label>
-    <label class="checkbox inline" for="ad-tags-3">
-      <input style="display:none" type="checkbox" name="ad-tags" id="ad-tags-3" value="Djeca">
+    <label class="radio inline unselectable" for="radios-3">
+      <input type="radio" name="radios" id="radios-3" value="4" hidden>
       Djeca
     </label>
   </div>
