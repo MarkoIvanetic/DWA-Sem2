@@ -7,6 +7,12 @@ html {
 body {
 	font-size: 16px;
 }
+input[type="text"], input[type="password"] {
+  padding: 8px 0px 8px 7px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
 .whiterow20{
   height: 20px;
 }
@@ -78,6 +84,16 @@ body {
   margin-top: 10px;
   background-color: #ea6060;
   color: white;
+  border-radius: 3px;
+}
+.blue-button{
+  border:none;
+  line-height: 1;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #39a;
+  color: white;
+  border-radius: 3px;
 }
 .ads-front {
   margin-bottom: 40px;
@@ -136,6 +152,44 @@ form div{
   font-weight: 400;
   margin-bottom: 5px!important;
 }
+.login-html{
+  background-color: #f8f8f8;
+}
+.login-html body{
+  background-color: #f8f8f8;
+}
+.login-inputs .control-label{
+  font-size: 1em;
+  font-weight: 400;
+}
+.login-FormContainer{
+  background-color: #fff;
+}
+.login-logo{
+  min-height: 48px;
+  margin: 20px 0px;
+}
+.login-inputs{
+  border-right:4px solid #f8f8f8;
+}
+.login-regRedirect{
+  border-left:4px solid #f8f8f8;
+  height: 270px;
+
+}
+.login-regRedirect div{
+  text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+.login-inputs input[type="submit"]{
+  margin-bottom: 20px;
+}
+
+
 
 @media screen and (max-width: 767) {
   body{
