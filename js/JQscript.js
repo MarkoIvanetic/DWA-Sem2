@@ -24,6 +24,10 @@ $(function(){
     $('.radio-tags label').removeClass("active-checkbox");
     $(this).addClass("active-checkbox");
     });
+ 
+ $("#logout").click(function(){
+   $.ajax({ url: 'includes/logout.php' });
+});
 
 $( window ).resize(function() {
 if ($(window).width() < 767) {

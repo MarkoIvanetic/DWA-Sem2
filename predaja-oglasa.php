@@ -1,39 +1,62 @@
+<?php
+  session_start();
+  include 'includes/connection.php';
+  if(!isset($_SESSION['username'])){ //if login in session is not set
+    header("Location: prijava.php");
+}
+  ?>
 <!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Pašteta i Bakar</title>
-    <meta name="description" content="">
-    <meta name="author" content="Marko Ivanetić">
-    <meta name="author" content="Luka Gado">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--SCRIPTS-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/JQscript.js"></script>
-    <!--CSS-->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <!--[if lt IE 9]>
+<head>
+ <meta charset='utf-8'>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="viewport" content="width=device-width" />
+ <title>Pašteta i Bakar</title>
+ <meta name="description" content="">
+ <meta name="author" content="Marko Ivanetić">
+ <meta name="author" content="Luka Gado">
+ <!--SCRIPTS-->
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+ <script src="js/script.js"></script>
+ <script src="js/JQscript.js"></script>
+ <!--CSS-->
+ <link rel="stylesheet" href="css/style.css">
+ <link rel="stylesheet" href="css/normalize.css">
+ <link href="css/bootstrap.css" rel="stylesheet">
+  <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link href="css/navigation.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700,600' rel='stylesheet' type='text/css'>
+
   </head>
   <body>
-    <header id="header">
-      <h1>Site Title</h1>
-      <nav id="nav">
+     <header id="header">
+      <div id='cssmenu' class='align-right'>
         <ul>
-          <li id="click"><a>HOME</a></li>
-          <li><a href="#">ABOUT</a></li>
-          <li><a href="">SERVICES</a></li>
-          <li><a href="oglas.html">PREDAJ OGLAS</a></li>
-          <li><a href="#">CONTACT</a></li>
-        </ul>
-      </nav>
-    </header>
+         <li class='has-sub'><a href="#" id="user-profile">
+          <?php 
+          if(isset($_SESSION['username']))
+            {echo  $_SESSION['username'];}
+          if(!isset($_SESSION['username'])) 
+            { echo '<li><a href="prijava.php">LOGIN</a></li>';} 
+          ?>
+        </a>
+        <ul>
+         <li><a href='#'>My profile</a></li>
+         <li><a href='#'>My oglasi</a></li>
+         <li><a href='#'>Logout</a></li>
+       </ul>
+     </li>
+     <li><a href='#'>CONTACT</a></li>
+     <li><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
+     <li><a href='#'>ABOUT</a></li>
+     <li class='active'><a href='index.php'>HOME</a></li>
+   </ul>
+ </div>
+</header>
     <div class="content col-xs-12">
       <form id="mainForm" action="predaja-oglasa.php" class="form-horizontal col-md-8 col-md-offset-2 col-xs-12" enctype="multipart/form-data" method="post">
         <fieldset>

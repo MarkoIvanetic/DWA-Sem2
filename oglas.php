@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  include 'includes/connection.php';
+  if(!isset($_SESSION['username'])){ //if login in session is not set
+    header("Location: prijava.php");
+}
+  ?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -30,7 +37,7 @@
           <li id="click"><a>HOME</a></li>
           <li><a href="#">ABOUT</a></li>
           <li><a href="">SERVICES</a></li>
-          <li><a href="oglas.html">PREDAJ OGLAS</a></li>
+          <li><a href="oglas.php">PREDAJ OGLAS</a></li>
           <li><a href="#">CONTACT</a></li>
         </ul>
       </nav>

@@ -55,10 +55,10 @@
 			</form>
 		</div>
 		<div class="col-md-6 login-regRedirect">
-			<div>
+			<div class="col-xs-12">
 				<h3>Niste registrirani?</h3>
 				<p>Započnite s registracijom, brzo je i jednostavno!</p>
-				<button class="blue-button" style="width:50%" onclick="location.href = 'registracija.php';">Registracija</button>
+				<button class="blue-button" style="width:50%; min-width:240px;" onclick="location.href = 'registracija.php';">Registracija</button>
 			</div>
 		</div>
 	</div>

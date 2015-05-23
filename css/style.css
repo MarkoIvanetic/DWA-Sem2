@@ -36,12 +36,15 @@ input[type="text"], input[type="password"] {
   margin-bottom: 10px;
 }
 .banner img {
-    margin-top: 59px;
+    margin-top: 0px;
     display: block;
     max-width:100%;
     max-height:669px;
     width: auto;
     height: auto;
+}
+.hidden{
+  display: none;
 }
 .wrap {
     /* force the div to properly contain the floated images: */
@@ -188,8 +191,18 @@ form div{
 .login-inputs input[type="submit"]{
   margin-bottom: 20px;
 }
+#user-profile-options{
+  z-index: 10;
+  height: 150px;
+  width: 150px;
+  background-color: red;
+}
 
-
+@media (max-width: 992px){
+    .login-regRedirect div{
+      text-align: left;
+    }
+}
 
 @media screen and (max-width: 767) {
   body{
