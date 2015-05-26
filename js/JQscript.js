@@ -5,6 +5,9 @@ $(function(){
 } else {
   $("body").css("font-size","16px");
 }
+if ($(window).width() < 992) {
+  $("#captcha input").before("<br>");
+  }
 
   $('#nav').click(function() {
     $(this).toggleClass('open');

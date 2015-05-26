@@ -180,6 +180,11 @@ form div{
   height: 270px;
 
 }
+.controls img{
+  font-size: 1.2em;
+  display: block;
+  padding: 0;
+}
 .login-regRedirect div{
   text-align: center;
   position: relative;
@@ -202,6 +207,12 @@ form div{
     .login-regRedirect div{
       text-align: left;
     }
+    .login-regRedirect, .login-inputs{
+    border: 0px solid black;
+  }
+  .login-regRedirect{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 767) {
