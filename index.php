@@ -1,8 +1,6 @@
 <?php
   session_start();
   include 'includes/connection.php';
-  if(!isset($_SESSION['username'])){ //if login in session is not set
-}
   ?>
 <!doctype html>
 <html lang=''>
@@ -39,7 +37,7 @@
           <?php 
           if(isset($_SESSION['username']))
             {echo " <li class='has-sub'><a href='#'' id='user-profile'>" . $_SESSION['username'] . "</a>";
-              echo "<ul><li><a href='#'>My profile</a></li><li><a href='#'>My oglasi</a></li><li id='logout'><a href='logout.php'>Logout</a></li></ul></li>";
+              echo "<ul><li><a href='profile.php'>My profile</a></li><li><a href='moji-oglasi.php'>My oglasi</a></li><li id='logout'><a href='logout.php'>Logout</a></li></ul></li>";
         }
           if(!isset($_SESSION['username'])) 
             { echo '<li><a href="prijava.php">LOGIN</a></li>';} 

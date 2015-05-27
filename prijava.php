@@ -44,6 +44,7 @@
 
 					</div>
 				</div>
+						<a href="reset-lozinke.php">Zaboravili ste lozinku?</a>
 
 				<!-- Button -->
 				<div class="control-group">
