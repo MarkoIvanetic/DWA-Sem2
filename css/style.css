@@ -100,7 +100,24 @@ input[type="text"], input[type="password"] {
 }
 .ads-front {
   margin-bottom: 40px;
-  min-height: 80px!important;
+  min-height: 180px!important;
+  max-height: 260px;
+  text-overflow: ellipsis; 
+  word-wrap: break-word;
+}
+.ads-front p {
+  height: 110px;
+  text-overflow: ellipsis;
+}
+.ads-front a{
+  text-decoration: none;
+  color: white;
+  padding: 0px;
+  padding-top: 7px;
+  height: 100%;
+}
+.ads-front button {
+  padding:0px;
 }
 .ads-front-container{
 
