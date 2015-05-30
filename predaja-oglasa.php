@@ -51,49 +51,65 @@
        </ul>
      </li>
      <li><a href='#'>CONTACT</a></li>
-     <li><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
+     <li class="active"><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
      <li><a href='#'>ABOUT</a></li>
-     <li class='active'><a href='index.php'>HOME</a></li>
+     <li class=''><a href='index.php'>HOME</a></li>
    </ul>
  </div>
 </header>
     <div class="content col-xs-12">
-      <form id="mainForm" action="predaja-oglasa.php" class="form-horizontal col-md-8 col-md-offset-2 col-xs-12" enctype="multipart/form-data" method="post">
+      <form id="mainForm" action="predaja-oglasa.php" class="form-horizontal col-md-4 col-md-offset-2 col-xs-12" enctype="multipart/form-data" method="post">
         <fieldset>
           <!-- Form Name -->
           <legend>Predaja oglasa</legend>
           <!-- Text input-->
           <div class="control-group">
-            <label class="control-label" for="ad-title">Naslov</label>
+            <label class="control-label" for="ad-title">Naslov<span class="mandatory">*</span></label>
             <div class="controls">
-              <input id="ad-title" name="ad-title" type="text" placeholder="" class="input-xlarge" required="">
+              <input id="ad-title" name="ad-title" maxlength="64" type="text" placeholder="" class="input-xlarge col-xs-12" required="">
             </div>
           </div>
-          <div class="control-group">
-            <label class="control-label" for="radios">Kategorija</label>
+          <div class="control-group tag-container">
+            <label class="control-label" for="radios">Kategorija<span class="mandatory">*</span></label>
             <div class="controls radio-tags">
               <label class="radio inline unselectable" for="radios-0">
-              <input type="radio" name="radios" id="radios-0" value="odjeca" hidden>
-              Odjeća
+              <input type="radio" name="radios" id="radios-0" value="pribor" hidden required>
+              Kućanski pribor
               </label>
               <label class="radio inline unselectable" for="radios-1">
-              <input type="radio" name="radios" id="radios-1" value="obuca" hidden>
-              Obuća
+              <input type="radio" name="radios" id="radios-1" value="namjestaj" hidden required>
+              Namještaj
               </label>
               <label class="radio inline unselectable" for="radios-2">
-              <input type="radio" name="radios" id="radios-2" value="3" hidden>
-              Roblje
+              <input type="radio" name="radios" id="radios-2" value="obuca" hidden required>
+              Obuća
               </label>
               <label class="radio inline unselectable" for="radios-3">
-              <input type="radio" name="radios" id="radios-3" value="4" hidden>
-              Djeca
+              <input type="radio" name="radios" id="radios-3" value="odjeca" hidden required>
+              Odjeća
+              </label>
+              <label class="radio inline unselectable" for="radios-4">
+              <input type="radio" name="radios" id="radios-4" value="bebe" hidden required>
+              Oprema za bebe/ Igračke
+              </label>
+              <label class="radio inline unselectable" for="radios-5">
+              <input type="radio" name="radios" id="radios-5" value="tehnika" hidden required>
+              Tehnika
+              </label>
+              <label class="radio inline unselectable" for="radios-6">
+              <input type="radio" name="radios" id="radios-6" value="usluge" hidden required>
+              Usluge
+              </label>
+              <label class="radio inline unselectable" for="radios-7">
+              <input type="radio" name="radios" id="radios-7" value="ostalo" hidden required>
+              Ostalo
               </label>
             </div>
           </div>
-          <div class="control-group">
-            <label class="control-label" for="ad-desc">Opis</label>
+          <div class="control-group" id="desc-container">
+            <label class="control-label" for="ad-desc">Opis<span class="mandatory">*</span></label>
             <div class="controls">                     
-              <textarea id="ad-desc" name="ad-desc" cols="50" rows="15"></textarea>
+              <textarea id="ad-desc" name="ad-desc" cols="50" rows="5"></textarea>
             </div>
           </div>
           <div class="control-group">
@@ -103,9 +119,9 @@
             </div>
           </div>
           <div class="control-group">
-            <label for="file">Select a file:</label> <input type="file" name="image" id="image"> <br />
+            <label for="file">Odaberite sliku:</label> <input type="file" name="image" id="image"> <br />
             <div class="controls">
-              <input type="submit" name="submit" value="Predaj oglas" />
+              <input type="submit" class="red-button col-xs-4" name="submit" value="Predaj oglas" />
             </div>
           </div>
         </fieldset>

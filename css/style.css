@@ -146,8 +146,8 @@ input[type="text"], input[type="password"] {
 legend{
 font-weight: 700;
 }
-.form {
-  display: inline!important;
+.f {
+  display: inline-block!important;
 }
 input[type="file"]{
   font-size: 0.9em;
@@ -161,15 +161,15 @@ form div{
   font-weight: 400;
   padding: 5px!important;
 }
-#ad-title{
-
+.mandatory{
+  color: red;
+  font-size: 1.2em;
 }
 .active-checkbox{
-  background-color: #39a;
+  background-color: #39b1cc;
 }
 .control-label {
-  font-size: 1.2em;
-  font-weight: 400;
+  font-size: 1em;
   margin-bottom: 5px!important;
 }
 .login-html{
@@ -219,7 +219,22 @@ form div{
   width: 150px;
   background-color: red;
 }
+.profile-form .controls{
+  display: inline;
+}
 
+#mainForm label{
+  padding-top: 0px;
+}
+.radio-tags label:hover{
+  cursor: pointer;
+}
+.tag-container label{
+  margin-bottom: 15px!important;
+}
+.tag-container{
+  margin-bottom: 0px!important;
+}
 @media (max-width: 992px){
     .login-regRedirect div{
       text-align: left;
