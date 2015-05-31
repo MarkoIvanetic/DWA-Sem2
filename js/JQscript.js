@@ -1,5 +1,4 @@
 $(function(){
-
   if ($(window).width() < 767) {
    $("body").css("font-size","12px");
 } else {
@@ -12,6 +11,7 @@ if ($(window).width() < 992) {
   $('#nav').click(function() {
     $(this).toggleClass('open');
   });
+  $('.regBody .login-regRedirect').outerHeight($('.regBody .login-inputs').height());
 
  $("#click").click(function(){
   	$(".ads-front-container").append('<div class="ads-front col-sm-6 col-md-4">');
@@ -40,4 +40,21 @@ if ($(window).width() < 767) {
 }
 
 });
+  $('#izmjeni').click(function(){
+    $('.edit-text').addClass("hidden");
+    $('.edit-input').removeClass("hidden");
+    $('#izmjeni').addClass("hidden");
+    $('#save').removeClass("hidden");
+    $('#quit').removeClass("hidden");
+     return false;
+  });
+  $('#quit').click(function(){
+    $('.edit-text').removeClass("hidden");
+    $('.edit-input').addClass("hidden");
+    $('#izmjeni').removeClass("hidden");
+    $('#save').addClass("hidden");
+    $('#quit').addClass("hidden");
+     return false;
+  });
+
 });

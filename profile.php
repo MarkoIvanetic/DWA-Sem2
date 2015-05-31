@@ -62,9 +62,19 @@ include 'includes/connection.php';
 $owner = $_SESSION['username'];
 $sql = "SELECT * FROM korisnici WHERE username = '$owner'";
 $result = mysqli_query($db, $sql);
-$GLOBALS['$fromEmail'] = "";
+$GLOBALS['$formEmail'] = "";
 $GLOBALS['$formContact'] = "";
 $GLOBALS['$formLocation'] = "";
+
+while($row = mysqli_fetch_array($result))
+		{
+			$GLOBALS['$formEmail'] = $row['username'];
+
+			$GLOBALS['$formEmail'] = $row['email'];
+
+			if ($row['kontaktbroj']!=0){
+			$GLOBALS['$formLocation'] = $row['kontaktbroj'];}
+		}
 
     // Ažuriranje kontakt broja
 echo '<form action="profile.php" method="POST">';
@@ -105,58 +115,55 @@ if(isset($_POST['nemail']))
 		header("Refresh:2;url=profile.php");
 	}
 }
-
     //Promjena lozinke, postoji i na prijava.php
 echo '<br/><a href="reset-lozinke.php">Želite promjeniti lozinku?</a>';
 
 ?>
 <div class="container-fluid">
 	<div class="col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6 active-checkbox">
-		<?php
-		while($row = mysqli_fetch_array($result))
-		{
-			echo $row['username'];
-			echo '</br>';
-			echo $row['email'];
-			echo '</br>';
-			if ($row['kontaktbroj']!=0){
-			echo $row['kontaktbroj'];}
-			echo '</br>';
-		}
-		?>
 	<form class="form-horizontal profile-form" role="form">
 <fieldset>
-<!-- Form Name -->
+
 <legend>
 	<?php echo $_SESSION['username'];?>
 </legend>
-<!-- Text input-->
+
 <div class="control-group">
   <label class="control-label col-xs-3" for="email-field">Email:</label>
   <div class="controls col-xs-8 col-xs-offset-1">
-    <input id="email-field" name="email-field" type="text" placeholder="izmjeni" class="input-large edit-input">
-    <p class="edit-text">Ovdje ide iz baze</p>
+     <?php echo '<input id="email-field" name="email-field" type="text" value="'.$GLOBALS['$formEmail'].'" class="hidden input-large edit-input">' ?>
+    <?php echo '<p class="edit-text">'.$GLOBALS['$formEmail'].'</p>' ?>
   </div>
 </div>
 
-<!-- Text input-->
 <div class="control-group">
   <label class="control-label col-xs-3" for="contact-field">Kontakt broj:</label>
   <div class="controls col-xs-8 col-xs-offset-1">
-    <input id="contact-field" name="contact-field" type="text" placeholder="izmjeni" class="input-large edit-input">
-  	<p class="edit-text">Ovdje ide iz baze</p>
+   <?php echo '<input id="contact-field" name="contact-field" type="text" value="'.$GLOBALS['$formContact'].'" class="hidden input-large edit-input">' ?>
+  	<?php echo '<p class="edit-text">'.$GLOBALS['$formContact'].'</p>' ?>
   </div>
 </div>
 
-<!-- Text input-->
 <div class="control-group">
   <label class="control-label col-xs-3" for="location-field">Lokacija:</label>
   <div class="controls col-xs-8 col-xs-offset-1">
-    <input id="location-field" name="location-field" type="text" placeholder="izmjeni" class="input-large edit-input">
- 	<p class="edit-text">Ovdje ide iz baze</p>
+      <?php echo '<input id="location-field" name="location-field" type="text" value="'.$GLOBALS['$formContact'].'" class="hidden input-large edit-input">' ?>
+ 	<?php echo '<p class="edit-text">'.$GLOBALS['$formContact'].'</p>' ?>
   </div>
 </div>
 
+  <div id="izmjeni" class="controls col-xs-3 col-xs-offset-4">
+    <button name="izmjeni" class="red-button">Izmjeni podatke</button>
+  </div> 
+
+<!-- OVO TREBA SUBMITAT NOVE PODATKE -->
+  <div id="save" class="controls col-xs-1 col-xs-offset-4 hidden">
+    <button name="save" class="red-button">Spremi</button>
+  </div>
+
+   <div id="quit" class="controls col-xs-1 col-xs-offset-1 hidden">
+    <button name="quit" class="red-button">Odustani</button>
+  </div>
 </fieldset>
 </form>
 	</div>

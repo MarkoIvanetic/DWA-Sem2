@@ -1,7 +1,6 @@
 html {
   font-size: 16px;
   background: #fff;
-  height: 1500px; /*DELETE*/
   font-family: 'Titillium Web', sans-serif;
 }
 body {
@@ -108,6 +107,7 @@ input[type="text"], input[type="password"] {
 .ads-front p {
   height: 110px;
   text-overflow: ellipsis;
+  overflow: hidden;
 }
 .ads-front a{
   text-decoration: none;
@@ -234,6 +234,16 @@ form div{
 }
 .tag-container{
   margin-bottom: 0px!important;
+}
+.edit-text {
+  min-height: 25px; 
+}
+.profile-form legend {
+  font-size: 1.4em;
+  padding: 10px;
+}
+.tag-selector{
+  padding-left: 45px;
 }
 @media (max-width: 992px){
     .login-regRedirect div{

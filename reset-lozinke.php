@@ -18,11 +18,9 @@
 		echo '</form>';
 	}else{
 		echo "Trenutno ste prijavljeni!";
-		header("Refresh:2;url=index.php");
+		header("Refresh:1;url=index.php");
 	}
 	?>
-
-
 
 	<?php
 		if(isset($_POST['submit']))
@@ -57,7 +55,7 @@
 				//Slanje lozinke korisniku
 				$subject = "Nova lozinka";
 				$message = "Vaša lozinka je promijenjena: $email_password";
-				$from = "From: pastetaibakar@gmai.com"; 
+				$from = "From: pastetaibakar@gmail.com"; 
 				mail($email, $subject, $message, $from);
 				echo "Vaša nova lozinka je poslana na Vašu Email adresu!";
 				header("Refresh:2;url=prijava.php");

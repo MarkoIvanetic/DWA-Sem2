@@ -60,8 +60,46 @@ include 'includes/connection.php';
 </div>
 
 <div class="content col-xs-12">
-
-  <div class="ads-front-container col-sm-offset-1 col-sm-10">
+  <div class="tag-selector col-sm-offset-1 col-sm-10">
+    <div class="control-group tag-container">
+            <label class="control-label" for="radios">Kategorija<span class="mandatory">*</span></label>
+            <div class="controls radio-tags">
+              <label class="radio inline unselectable" for="radios-0">
+              <input type="radio" name="radios" id="radios-0" value="pribor" hidden>
+              Kućanski pribor
+              </label>
+              <label class="radio inline unselectable" for="radios-1">
+              <input type="radio" name="radios" id="radios-1" value="namjestaj" hidden>
+              Namještaj
+              </label>
+              <label class="radio inline unselectable" for="radios-2">
+              <input type="radio" name="radios" id="radios-2" value="obuca" hidden>
+              Obuća
+              </label>
+              <label class="radio inline unselectable" for="radios-3">
+              <input type="radio" name="radios" id="radios-3" value="odjeca" hidden>
+              Odjeća
+              </label>
+              <label class="radio inline unselectable" for="radios-4">
+              <input type="radio" name="radios" id="radios-4" value="bebe" hidden>
+              Oprema za bebe/ Igračke
+              </label>
+              <label class="radio inline unselectable" for="radios-5">
+              <input type="radio" name="radios" id="radios-5" value="tehnika" hidden>
+              Tehnika
+              </label>
+              <label class="radio inline unselectable" for="radios-6">
+              <input type="radio" name="radios" id="radios-6" value="usluge" hidden>
+              Usluge
+              </label>
+              <label class="radio inline unselectable" for="radios-7">
+              <input type="radio" name="radios" id="radios-7" value="ostalo" hidden>
+              Ostalo
+              </label>
+            </div>
+          </div>
+  </div>
+  <div class="ads-front-container col-sm-offset-1 col-sm-10 col-xs-12">
 
     <div class="ads-front col-sm-6 col-md-4">
       <h2 class="col-xs-12">Dajem kornjaču i akvarij</h2>
@@ -97,8 +135,6 @@ include 'includes/connection.php';
     }
 
     ?> 
-
-
   </div>
 </div>
 

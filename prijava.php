@@ -90,7 +90,7 @@
 				echo $_SESSION['username'];
 				header("Location:index.php");
 			}else{
-				echo "<h3>krivo ste upisali korisničko ime ili lozinku!<h3>";
+				echo "<h3 class='col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8'>Krivo ste upisali korisničko ime ili lozinku!<h3>";
 				header("url=prijava.php");
 			}
 
