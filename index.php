@@ -47,16 +47,19 @@ include 'includes/connection.php';
       <li><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
       <li><a href='#'>ABOUT</a></li>
       <li class='active'><a href='index.php'>HOME</a></li>
+      <li class='site-title hidden-xs'><h3>SITE TITLE</h3></li>
     </ul>
   </div>
 </header>
-<div class="banner darken wrap">
+<div class="banner darken wrap hidden-xs">
  <img src="res\bannerCLFlippednReady.png" class="">
+
  <div class="desc">
   <h2 class="col-xs-12">Možeš nekome uljepšati život</h2>
-  <h4 class="col-xs-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur egestas risus ut tempor. Praesent eu fringilla nisl. Nullam blandit id nisi ac dapibus. Pellentesque laoreet, nisi vel mollis posuere, mi est fermentum mauris, quis tempus libero sem ullamcorper nisi. </h4>
+  <h4 class="col-xs-12">Imaš li stari par cipela koje ti više ne trebaju? Ili veš mašinu koju si zamijenio novijom? Možeš pomoći drugima doniranjem stvari koje ti više ne trebaju putem oglasa!</h4>
   <button class="red-button col-xs-6 col-xs-offset-3">Daj nam pare</button>
 </div>
+
 </div>
 
 <div class="content col-xs-12">
@@ -100,14 +103,12 @@ include 'includes/connection.php';
           </div>
   </div>
   <div class="ads-front-container col-sm-offset-1 col-sm-10 col-xs-12">
-
     <div class="ads-front col-sm-6 col-md-4">
       <h2 class="col-xs-12">Dajem kornjaču i akvarij</h2>
-      <h3 class="col-xs-12">Zagreb</h3>
+      <h3 class="col-xs-12">Zagreb, <span>21.6.2015</span></h3>
       <p class="col-xs-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur egestas risus ut tempor. Praesent eu fringilla nisl. Nullam blandit id nisi ac dapibus. Pellentesque laoreet, nisi vel mollis posuere, mi est fermentum mauris, quis tempus libero sem ullamcorper nisi.</p>
       <button class="red-button-front red-button col-xs-6">Više</button>
     </div>
-
     <?php
     $sql = "SELECT * FROM oglasi ORDER BY `id` DESC";
     $result = mysqli_query($db, $sql);
@@ -123,7 +124,7 @@ include 'includes/connection.php';
 
       echo '<div class="ads-front col-sm-6 col-md-4">';
       echo '<h2 class="col-xs-12">' .$row['title']. '</h2>';
-      echo '<h3 class="col-xs-12">Predao: '.$row['owner'].'</h3>';
+      echo '<h3 class="col-xs-12"><a>'.$row['owner'].'</a> - Zagreb, <span>21.6.2015</span></h3>';
       echo '<p class="col-xs-12">'.$row['description'].'</p>';
 
     //Stvaranje URL-a

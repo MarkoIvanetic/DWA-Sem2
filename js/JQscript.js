@@ -8,6 +8,24 @@ if ($(window).width() < 992) {
   $("#captcha input").before("<br>");
   }
 
+   // Get an array of all element heights
+  var elementHeights = $('.ads-front').map(function() {
+    return $(this).outerHeight();
+  }).get();
+
+  // Math.max takes a variable number of arguments
+  // `apply` is equivalent to passing each height as an argument
+  var maxHeight = Math.max.apply(null, elementHeights);
+  // Set each height to the max height
+  if ($(window).width() > 767) {
+  $('.ads-front').height(maxHeight);
+  }
+
+
+
+  $('.site-title').click(function(){
+    window.location.replace("index.php");
+  });
   $('#nav').click(function() {
     $(this).toggleClass('open');
   });
@@ -33,10 +51,24 @@ if ($(window).width() < 992) {
 });
 
 $( window ).resize(function() {
+  var descTopRecalc = ($('.banner').outerHeight() / $(html).outerHeight()) - $('.desc h2').outerHeight();
+  $('.desc').css("top", descTopRecalc/2);
+
 if ($(window).width() < 767) {
    $("body").css("font-size","12px");
 } else {
   $("body").css("font-size","16px");
+
+   // Get an array of all element heights
+  var elementHeights = $('.ads-front').map(function() {
+    return $(this).outerHeight();
+  }).get();
+
+  // Math.max takes a variable number of arguments
+  // `apply` is equivalent to passing each height as an argument
+  var maxHeight = Math.max.apply(null, elementHeights);
+  // Set each height to the max height
+  $('.ads-front').height(maxHeight);
 }
 
 });

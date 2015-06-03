@@ -1075,8 +1075,8 @@ th {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-*:before,
-*:after {
+*:before:not(#menu-button),
+*:after:not(#menu-button) {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
@@ -1267,19 +1267,19 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 36px;
+  font-size: 2em;
 }
 h2,
 .h2 {
-  font-size: 30px;
+  font-size: 1.875em;
 }
 h3,
 .h3 {
-  font-size: 24px;
+  font-size: 1.5em;
 }
 h4,
 .h4 {
-  font-size: 18px;
+  font-size: 1.125em;
 }
 h5,
 .h5 {

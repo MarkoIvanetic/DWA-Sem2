@@ -241,7 +241,7 @@
   #cssmenu > ul > li:hover > a,
   #cssmenu > ul > li.active > a {
     background: rgba(0, 0, 0, 0.1);
-  }
+  }/*
   #cssmenu #menu-button {
     display: block;
     text-decoration: none;
@@ -251,9 +251,8 @@
     padding: 18px 25px 18px 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: url('images/bg.png');
     cursor: pointer;
-  }
+  }*/
   #cssmenu ul ul,
   #cssmenu ul li:hover > ul,
   #cssmenu > ul > li > ul,
