@@ -101,15 +101,14 @@ input[type="text"], input[type="password"] {
 
 .ads-front {
   margin-bottom: 40px;
-  /*min-height: 180px!important;*/
-  /*max-height: 260px;*/
   text-overflow: ellipsis; 
   word-wrap: break-word;
   overflow: hidden;
 }
 .ads-front h2{
-  font-size: 1.85em;
-  
+  font-size: 2vw;
+}
+.ads-front button{
 
 }
 .ads-front p {
@@ -285,38 +284,27 @@ form div{
   }
 }
 @media (max-width: 767px){ /*col-xs*/
-  .ads-front p{
-    height: auto;
-  }
+
 }
 @media (min-width: 768px){ /*col-sm*/
 
 }
-@media (min-width: 992px){ /*col-md*/
-  .ads-front>h2{
-    font-size: 2.2vw;
+@media (max-width: 992px){ /*col-md*/
+  .desc{
+    width: 45%;
+    left: 52%!important;
+  }
+  .ads-front h2{
+    font-size: 1.5em!important;
   }
 
 }
 @media (min-width: 1200px){/*col-lg*/
-  .desc {
-    width: 20%;
-    font-size: inherit!important;
-    top: 30%;
-  }
+
 }
-@media (max-width: 900px){/*col-lg*/
-  .desc h2{
-    display: none;
-  }
-  .desc h4{
-    font-size: 1.2vw;
-  }
-    .desc h2{
-    font-size: 3vw;
-  }
+@media (max-width: 1100px){/*col-lg*/
   .desc{
-    top:30%!important;
+    top:10%!important;
   }
 }
 

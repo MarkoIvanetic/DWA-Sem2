@@ -107,6 +107,7 @@ include 'includes/connection.php';
       <h2 class="col-xs-12">Dajem kornjaču i akvarij</h2>
       <h3 class="col-xs-12">Zagreb, <span>21.6.2015</span></h3>
       <p class="col-xs-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur egestas risus ut tempor. Praesent eu fringilla nisl. Nullam blandit id nisi ac dapibus. Pellentesque laoreet, nisi vel mollis posuere, mi est fermentum mauris, quis tempus libero sem ullamcorper nisi.</p>
+      <input type="text" value="odjeca" hidden>
       <button class="red-button-front red-button col-xs-6">Više</button>
     </div>
     <?php
@@ -126,6 +127,7 @@ include 'includes/connection.php';
       echo '<h2 class="col-xs-12">' .$row['title']. '</h2>';
       echo '<h3 class="col-xs-12"><a>'.$row['owner'].'</a> - Zagreb, <span>21.6.2015</span></h3>';
       echo '<p class="col-xs-12">'.$row['description'].'</p>';
+      echo '<input type="text" value="obuca" hidden>';
 
     //Stvaranje URL-a
       $id = $row['id'];
