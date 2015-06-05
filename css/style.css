@@ -1,4 +1,6 @@
 html {
+  position: relative;
+  min-height: 100%;
   font-size: 16px;
   background: #fff;
   font-family: 'Titillium Web', sans-serif;
@@ -20,16 +22,10 @@ input[type="text"], input[type="password"] {
       position: relative;
     min-height: 1px
 }
-.container {
-  position: relative;
-  margin: 0 auto;
-  width: 94%;
-  max-width: 1100px;
-  font-family: helvetica, sans-serif;
-}
 .content {
   position: relative;
-  padding-top: 80px;
+  padding-top: 40px;
+  margin-bottom: 200px;
 }
 .content p {
   margin-bottom: 10px;
@@ -66,7 +62,7 @@ input[type="text"], input[type="password"] {
     text-align:center;
   }
   .desc{
-    width:30%;
+    width:25%;
   }
   .desc h4{
     color:#192929;
@@ -75,7 +71,6 @@ input[type="text"], input[type="password"] {
   }
   .desc h2{
     padding: 20px 0;
-    width: 100%;
     /*font-size: 2.875em;*/
     font-size: 2.2vw;
     background-color: #192929;
@@ -279,6 +274,16 @@ form div{
 .ads-front>h2{
   margin-bottom: 0px;
 }
+
+/*FOOTER*/
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background-color: #39b1cc;
+}
 @media (max-width: 992px){
     .login-regRedirect div{
       text-align: left;
@@ -291,7 +296,12 @@ form div{
   }
 }
 @media (max-width: 767px){ /*col-xs*/
-
+  .content{
+    padding-top: 20px;
+  }
+  .tag-selector{
+    margin-bottom: 20px;
+  }
 }
 @media (min-width: 768px){ /*col-sm*/
 
@@ -301,8 +311,21 @@ form div{
     width: 45%;
     left: 52%!important;
   }
+  .desc h4{
+     font-size: 1em!important;
+  }
+  .desc h2{
+    width: 83.3333333%;
+    margin-left: 8.33333333%!important;
+  }
+  .ads-front{
+    min-width: 400px;
+  }
   .ads-front h2{
     font-size: 1.5em!important;
+  }
+  .ads-front p{
+    height: inherit;
   }
 
 }
