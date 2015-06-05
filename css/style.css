@@ -111,6 +111,13 @@ input[type="text"], input[type="password"] {
 .ads-front button{
 
 }
+.ad-preview h3{
+  font-size: 1em;
+}
+.ad-preview p{
+  font-size: 1.5em;
+  text-overflow: initial; 
+}
 .ads-front p {
   height: 110px;
   text-overflow: ellipsis;

@@ -32,9 +32,9 @@ if ($(window).width() < 992) {
 
   //main page filter by tag
   $("input[name=radios]:radio").change(function () {
-    $(".ads-front").hide(200);
-    $(".ads-front-container input[value='"+$(this).val()+"']").closest(".ads-front").show(100);
-    $('html, body').animate({
+    $(".ads-front").slideDown(200);
+    $(".ads-front-container input[value='"+$(this).val()+"']").closest(".ads-front").slideUp(100);
+    $('html, body').stop().animate({
         scrollTop: $(".tag-selector").offset().top
     }, 500);
   });
