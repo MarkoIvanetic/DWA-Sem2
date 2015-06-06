@@ -50,7 +50,8 @@
 				<div class="control-group">
 					<label class="control-label" for="submit"></label>
 					<div class="controls">
-						<input type="submit" id="submit" name="submit" class="red-button col-xs-6" value="Prijava"></input>
+						<input type="submit" id="submit" name="submit" class="red-button col-md-6 col-sm-3" value="Prijava"></input>
+						<button class="blue-button col-xs-3 col-sm-offset-1 visible-sm visible-xs" onclick="location.href = 'registracija.php';">Registracija</button>
 					</div>
 				</div>
 			</form>

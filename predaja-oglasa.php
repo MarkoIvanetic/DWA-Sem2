@@ -35,25 +35,21 @@
     <header id="header">
       <div id='cssmenu' class='align-right'>
         <ul>
-          <li class='has-sub'>
-            <a href="#" id="user-profile">
-            <?php 
-              if(isset($_SESSION['username']))
-                {echo  $_SESSION['username'];}
-              if(!isset($_SESSION['username'])) 
-                { echo '<li><a href="prijava.php">LOGIN</a></li>';} 
-              ?>
-            </a>
-            <ul>
-              <li><a href='#'>My profile</a></li>
-              <li><a href='#'>My oglasi</a></li>
-              <li><a href='#'>Logout</a></li>
-            </ul>
+          <!-- <li class='has-sub'><a href="#" id="user-profile"> -->
+          <?php 
+            if(isset($_SESSION['username']))
+             {echo " <li class='has-sub'><a href='#'' id='user-profile'>" . $_SESSION['username'] . "</a>";
+            echo "<ul><li><a href='profile.php'>Moj profil</a></li><li id='logout'><a href='logout.php'>Logout</a></li></ul></li>";
+            }
+            if(!isset($_SESSION['username'])) 
+            { echo '<li><a href="prijava.php">LOGIN</a></li>';} 
+            ?>
+          <li><a href='#'>KONTAKT</a></li>
+          <li class='active'><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
+          <li><a href='index.php'>POČETNA</a></li>
+          <li class='site-title hidden-xs'>
+            <h3>SITE TITLE</h3>
           </li>
-          <li><a href='#'>CONTACT</a></li>
-          <li class="active"><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
-          <li><a href='#'>ABOUT</a></li>
-          <li class=''><a href='index.php'>HOME</a></li>
         </ul>
       </div>
     </header>

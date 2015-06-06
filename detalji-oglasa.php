@@ -31,22 +31,21 @@
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700,600' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <header id="header">
+        <header id="header">
       <div id='cssmenu' class='align-right'>
         <ul>
           <!-- <li class='has-sub'><a href="#" id="user-profile"> -->
           <?php 
             if(isset($_SESSION['username']))
              {echo " <li class='has-sub'><a href='#'' id='user-profile'>" . $_SESSION['username'] . "</a>";
-            echo "<ul><li><a href='profile.php'>My profile</a></li><li><a href='moji-oglasi.php'>My oglasi</a></li><li id='logout'><a href='logout.php'>Logout</a></li></ul></li>";
+            echo "<ul><li><a href='profile.php'>Moj profil</a></li><li id='logout'><a href='logout.php'>Logout</a></li></ul></li>";
             }
             if(!isset($_SESSION['username'])) 
             { echo '<li><a href="prijava.php">LOGIN</a></li>';} 
             ?>
-          <li><a href='#' id="click">CONTACT</a></li>
-          <li><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
-          <li><a href='#'>ABOUT</a></li>
-          <li class=''><a href='index.php'>HOME</a></li>
+          <li><a href='#'>KONTAKT</a></li>
+          <li class="active"><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
+          <li class=''><a href='index.php'>POČETNA</a></li>
           <li class='site-title hidden-xs'>
             <h3>SITE TITLE</h3>
           </li>
@@ -60,7 +59,7 @@
           while($row = mysqli_fetch_array($result))
           {
           $date = new DateTime($row['date']);
-          
+
           echo '<div class="ad-preview col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">';
              echo '<h2 class="col-xs-12"><b>' .$row['title']. '</b></h2>';
              echo '<h3 class="col-xs-4"><u>Prijavio:</u> '.$row['owner'].'</h3>';
@@ -68,7 +67,7 @@
              echo '<h3 class="col-xs-4"><u>Datum:</u> '.$date->format('d.m.Y').'</h3>';
              echo '<p class="col-xs-12">'.$row['description'].'</p>';
              echo '<h3 class="col-xs-6"><u>Kontakt:</u> '.$row['contact'].'</h3>';
-             echo '<h3 class="col-xs-6"><u>Lokacija:</u> '.$row['contact'].'</h3>';
+             echo '<h3 class="col-xs-6"><u>Lokacija:</u> Zagreb</h3>';
           
            echo '<button class="red-button red-button-front col-xs-12"><a style="color:white; text-decoration:none;" href="index.php">Povratak na početnu</a></button>';
           echo '</div>';

@@ -35,15 +35,14 @@
           <?php 
             if(isset($_SESSION['username']))
              {echo " <li class='has-sub'><a href='#'' id='user-profile'>" . $_SESSION['username'] . "</a>";
-            echo "<ul><li><a href='profile.php'>My profile</a></li><li><a href='moji-oglasi.php'>My oglasi</a></li><li id='logout'><a href='logout.php'>Logout</a></li></ul></li>";
+            echo "<ul><li><a href='profile.php'>Moj profil</a></li><li id='logout'><a href='logout.php'>Logout</a></li></ul></li>";
             }
             if(!isset($_SESSION['username'])) 
             { echo '<li><a href="prijava.php">LOGIN</a></li>';} 
             ?>
-          <li><a href='#' id="click">CONTACT</a></li>
+          <li><a href='#'>KONTAKT</a></li>
           <li><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
-          <li><a href='#'>ABOUT</a></li>
-          <li class='active'><a href='index.php'>HOME</a></li>
+          <li class='active'><a href='index.php'>POČETNA</a></li>
           <li class='site-title hidden-xs'>
             <h3>SITE TITLE</h3>
           </li>
@@ -55,7 +54,7 @@
       <div class="desc">
         <h2 class="col-sm-12">Možeš nekome uljepšati život</h2>
         <h4 class="col-xs-12">Imaš li stari par cipela koje ti više ne trebaju? Ili veš mašinu koju si zamijenio novijom? Možeš pomoći drugima doniranjem stvari koje ti više ne trebaju putem oglasa!</h4>
-        <button class="red-button col-xs-6 col-xs-offset-3">Daj nam pare</button>
+         <button class="red-button col-xs-6 col-xs-offset-3">Predaj oglas</button>
       </div>
     </div>
     <div class="content col-xs-12">
@@ -118,13 +117,13 @@
           // echo '</br>' .$row['keywords']; //Ključne rijeci
           // echo '</br>' .$row['contact']; //Kontakt
           // echo '</br>' .$row['date']; //Datum
-          
+            $date = new DateTime($row['date']);
             echo '<div class="ads-front col-sm-6 col-md-4">';
             echo '<h2 class="col-xs-12">' .$row['title']. '</h2>';
-            echo '<h3 class="col-xs-12"><a>'.$row['owner'].'</a> - Zagreb, <span>21.6.2015</span></h3>';
+            echo '<h3 class="col-xs-12"><a>'.$row['owner'].'</a> - Zagreb, <span>'.$date->format('d.m.Y').'</span></h3>';
             echo '<p class="col-xs-12">'.$row['description'].'</p>';
             echo '<input type="text" value="obuca" hidden>';
-          
+            
           //Stvaranje URL-a
             $id = $row['id'];
             $_SESSION['oglas_id'] = $id;
@@ -137,6 +136,17 @@
       </div>
     </div>
   </body>
-   <footer>ASD</footer>
+   <footer>
+      <div class="container col-xs-12">
+         <div class="row">
+        <div class="col-xs-offset-8 col-xs-offset-2">
+          <div class="signature col-xs-2 col-xs-offset-4">
+            <p>Marko Ivanetić & Luka Gado</p>
+            <h4>© Copyright 2015 - Site tittle </h4>
+          </div>
+        </div>
+    </div>
+    </div>
+   </footer>
   <link rel="stylesheet" href="css/style.css">
   </html>
