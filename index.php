@@ -40,7 +40,7 @@
             if(!isset($_SESSION['username'])) 
             { echo '<li><a href="prijava.php">LOGIN</a></li>';} 
             ?>
-          <li><a href='#'>KONTAKT</a></li>
+          <li><a href='kontakt.php'>KONTAKT</a></li>
           <li><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
           <li class='active'><a href='index.php'>POČETNA</a></li>
           <li class='site-title hidden-xs'>
@@ -97,7 +97,7 @@
           </div>
         </div>
       </div>
-      <div class="ads-front-container col-sm-offset-1 col-sm-10 col-xs-8">
+      <div class="ads-front-container onlyIndex col-sm-offset-1 col-sm-10 col-xs-8">
         <div class="ads-front col-sm-6 col-md-4">
           <h2 class="col-xs-12">Dajem kornjaču i akvarij</h2>
           <h3 class="col-xs-12">Zagreb, <span>21.6.2015</span></h3>
@@ -121,7 +121,7 @@
             echo '<div class="ads-front col-sm-6 col-md-4">';
             echo '<h2 class="col-xs-12">' .$row['title']. '</h2>';
             echo '<h3 class="col-xs-12"><a>'.$row['owner'].'</a> - Zagreb, <span>'.$date->format('d.m.Y').'</span></h3>';
-            echo '<p class="col-xs-12">'.$row['description'].'</p>';
+            echo '<p class="col-xs-12 indexP">'.$row['description'].'</p>';
             echo '<input type="text" value="obuca" hidden>';
             
           //Stvaranje URL-a
@@ -136,16 +136,10 @@
       </div>
     </div>
   </body>
-   <footer>
-      <div class="container col-xs-12">
-         <div class="row">
-        <div class="col-xs-offset-8 col-xs-offset-2">
-          <div class="signature col-xs-2 col-xs-offset-4">
+ <footer>
+       <div class="signature col-xs-12" style="text-align:center;">
             <p>Marko Ivanetić & Luka Gado</p>
             <h4>© Copyright 2015 - Site tittle </h4>
-          </div>
-        </div>
-    </div>
     </div>
    </footer>
   <link rel="stylesheet" href="css/style.css">

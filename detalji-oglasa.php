@@ -43,7 +43,7 @@
             if(!isset($_SESSION['username'])) 
             { echo '<li><a href="prijava.php">LOGIN</a></li>';} 
             ?>
-          <li><a href='#'>KONTAKT</a></li>
+          <li><a href='kontakt.php'>KONTAKT</a></li>
           <li class="active"><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
           <li class=''><a href='index.php'>POČETNA</a></li>
           <li class='site-title hidden-xs'>

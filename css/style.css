@@ -78,7 +78,7 @@ input[type="text"], input[type="password"] {
 .red-button{
   border:none;
   line-height: 1;
-  height: 40px;
+  padding: 5px;
   margin-top: 10px;
   background-color: #ea6060;
   color: white;
@@ -90,7 +90,7 @@ input[type="text"], input[type="password"] {
 .blue-button{
   border:none;
   line-height: 1;
-  height: 40px;
+  padding: 5px;
   margin-top: 10px;
   background-color: #39a;
   color: white;
@@ -127,9 +127,6 @@ input[type="text"], input[type="password"] {
   padding: 0px;
   padding-top: 7px;
   height: 100%;
-}
-.ads-front button {
-  padding:0px;
 }
 .ads-front-container{
 
@@ -277,13 +274,24 @@ form div{
 .ads-front>h2{
   margin-bottom: 0px;
 }
+.contact-container{
+
+}
+.contact-image img{
+
+}
+.contact-image img{
+  width: 150px;
+  height: 150px;
+
+}
 
 /*FOOTER*/
 footer {
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 140px;
+    height: 100px;
     width: 100%;
     background-color: #39b1cc;
 }
@@ -302,9 +310,12 @@ footer h4{
     font-weight: 400;
     text-align: center;
 }
+.contact-container{
+  padding:0;
+}
 .signature{
   height: 60px;
-  margin-top: 70px;
+  margin-top: 30px;
 }
 p:not(footer p){
   margin: 0 0 10px!important;
@@ -331,6 +342,17 @@ p:not(footer p){
 @media (min-width: 768px){ /*col-sm*/
 
 }
+@media (max-width: 768px){ /*col-sm*/
+  .butRes{
+    height: 30px;
+  }
+    .ads-front p{
+      height: inherit;
+  }
+  .contact-image{
+    height: 200px!important;
+  }
+}
 @media (max-width: 992px){ /*col-md*/
   .desc{
     width: 45%;
@@ -348,9 +370,6 @@ p:not(footer p){
   }
   .ads-front h2{
     font-size: 1.5em!important;
-  }
-  .ads-front p{
-    height: inherit;
   }
 
 }

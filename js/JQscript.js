@@ -59,8 +59,6 @@ if ($(window).width() < 992) {
 });
 
 $( window ).resize(function() {
-  var descTopRecalc = ($('.banner').outerHeight() / $(html).outerHeight()) - $('.desc h2').outerHeight();
-  $('.desc').css("top", descTopRecalc/2);
 
 if ($(window).width() < 767) {
    $("body").css("font-size","12px");
@@ -76,12 +74,14 @@ if ($(window).width() < 767) {
   // `apply` is equivalent to passing each height as an argument
   var maxHeight = Math.max.apply(null, elementHeights);
   // Set each height to the max height
-  $('.ads-front').height(maxHeight);
+  $('.onlyIndex .ads-front').height(maxHeight);
 }
-
 });
+
+
   $('#izmjeni').click(function(){
     $('.edit-text').addClass("hidden");
+    $('.passchange').removeClass("hidden");
     $('.edit-input').removeClass("hidden");
     $('#izmjeni').addClass("hidden");
     $('#save').removeClass("hidden");
@@ -90,6 +90,7 @@ if ($(window).width() < 767) {
   });
   $('#quit').click(function(){
     $('.edit-text').removeClass("hidden");
+    $('.passchange').addClass("hidden");
     $('.edit-input').addClass("hidden");
     $('#izmjeni').removeClass("hidden");
     $('#save').addClass("hidden");

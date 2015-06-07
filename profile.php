@@ -45,7 +45,7 @@ include 'includes/connection.php';
             if(!isset($_SESSION['username'])) 
             { echo '<li><a href="prijava.php">LOGIN</a></li>';} 
             ?>
-          <li><a href='#'>KONTAKT</a></li>
+          <li><a href='kontakt.php'>KONTAKT</a></li>
           <li class=''><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
           <li><a href='index.php'>POČETNA</a></li>
           <li class='site-title hidden-xs'>
@@ -69,8 +69,8 @@ while($row = mysqli_fetch_array($result))
 
 			$GLOBALS['$formEmail'] = $row['email'];
 
-			if ($row['kontaktbroj']!=0){
-			$GLOBALS['$formLocation'] = $row['kontaktbroj'];}
+			if ($row['kontaktbroj']!=''){
+			$GLOBALS['$formLocation'] = $row['kontaktbroj'];} else  {$GLOBALS['$formLocation'] = "N/A";}
 		}
 
 if(isset($_POST['kontakt']))
@@ -118,7 +118,19 @@ if(isset($_POST['kontakt']))
  	<?php echo '<p class="edit-text">'.$GLOBALS['$formContact'].'</p>' ?>
   </div>
 
+<!-- PASSWORD CHANGE -->
+<div class="hidden passchange">
+  <label class="control-label col-sm-3 col-xs-2" for="location-field">Stara Lozinka:</label>
+  <div class="controls col-xs-8 col-xs-offset-1">
+      <input id="location-field" name="location-field" type="text" class="input-large edit-input">
+  </div>
 
+    <label class="control-label col-sm-3 col-xs-2" for="location-field">Nova Lozinka:</label>
+  <div class="controls col-xs-8 col-xs-offset-1">
+      <input id="location-field" name="location-field" type="text" class="input-large edit-input">
+  </div>
+</div>
+  <!-- BUTTONS -->
   <div id="izmjeni" class="controls col-xs-3 col-sm-offset-4 col-xs-offset-2">
     <button name="izmjeni" class="red-button">Izmjeni podatke</button>
   </div> 
@@ -135,5 +147,43 @@ if(isset($_POST['kontakt']))
 </form>
 	</div>
 </div>
+<div class="container-ads col-xs-12" style="margin-top:50px;">
+<?php
+  $owner = $_SESSION['username'];
+  $query = "SELECT * FROM oglasi WHERE owner = '$owner'";
+  $result = mysqli_query($db, $query);
+   echo '<div class="ads-front-container col-sm-6 col-md-offset-2 col-md-10">';
+   while($row = mysqli_fetch_array($result))
+    {
+    $id = $row['id'];
+    
+            $date = new DateTime($row['date']);
+            echo '<div class="ads-front col-sm-6 col-md-4">';
+            echo '<h2 class="col-xs-12">' .$row['title']. '</h2>';
+            echo '<h3 class="col-xs-12"><a>'.$row['owner'].'</a> - Zagreb, <span>'.$date->format('d.m.Y').'</span></h3>';
+            echo '<p class="col-xs-12">'.$row['description'].'</p>';
+            echo '<input type="text" value="obuca" hidden>';
+            
+          //Stvaranje URL-a
+            $id = $row['id'];
+            $_SESSION['oglas_id'] = $id;
+            $url = 'detalji-oglasa.php?id=' . $id;
+            echo '<button class="butRes blue-button col-sm-4 col-xs-10"><a href="' . $url . '">Više</a></button>';
+            echo '<form action="moji-oglasi.php" method="POST"><input type="submit" class="butRes red-button col-sm-4 col-xs-10" value="Obriši" name='.$id.'></form>';
+            echo '</div>';
+    
+    if(isset($_POST[$id])){
+     echo $id;
+     // Treba nam console.log da korisnik potvrduje obrisati oglas
+     $query = "DELETE FROM oglasi WHERE id = '$id'";
+     $result = mysqli_query($db, $query);    
+   }
+   
+    }
+  echo '</div>';
+ 
+?>
+</div>
 </body>
+
 </html>

@@ -44,7 +44,7 @@
             if(!isset($_SESSION['username'])) 
             { echo '<li><a href="prijava.php">LOGIN</a></li>';} 
             ?>
-          <li><a href='#'>KONTAKT</a></li>
+          <li><a href='kontakt.php'>KONTAKT</a></li>
           <li class='active'><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
           <li><a href='index.php'>POČETNA</a></li>
           <li class='site-title hidden-xs'>
@@ -225,4 +225,10 @@
           ?>
     </div>
   </body>
+   <footer>
+       <div class="signature col-xs-12" style="text-align:center;">
+            <p>Marko Ivanetić & Luka Gado</p>
+            <h4>© Copyright 2015 - Site tittle </h4>
+    </div>
+   </footer>
 </html>
