@@ -22,6 +22,12 @@ input[type="text"], input[type="password"] {
       position: relative;
     min-height: 1px
 }
+.form-horizontal label, .form-horizontal p{
+
+}
+.underline{
+  text-decoration: underline;
+}
 .content {
   position: relative;
   padding-top: 40px;
@@ -184,9 +190,6 @@ form div{
   color: red;
   font-size: 1.2em;
 }
-.active-checkbox{
-  background-color: #39b1cc;
-}
 .control-label {
   font-size: 1em;
   margin-bottom: 5px!important;
@@ -331,12 +334,18 @@ footer p{
     font-weight: 700;
     text-align: center;
 }
+.infoChanger{
+  margin-top: 40px;
+}
 footer h4{
     color: white;
     font-size: 0.8em;
     letter-spacing: 1px;
     font-weight: 400;
     text-align: center;
+}
+.container-fluid{
+  background: #DAE5E5;
 }
 .contact-container{
   padding:0;
@@ -377,6 +386,9 @@ p:not(footer p){
 .gado{
   border-left: 2px solid white;
 }
+.infoChanger{
+  min-width:755px;
+  }
 }
 @media (max-width: 768px){ /*col-sm*/
   .butRes{

@@ -88,7 +88,7 @@ if(isset($_POST['kontakt']))
 }
 ?>
 <div class="container-fluid">
-	<div class="col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6 active-checkbox">
+	<div class="col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6 active-checkbox infoChanger">
 	<form class="form-horizontal profile-form" role="form">
 <fieldset>
 
@@ -100,14 +100,13 @@ if(isset($_POST['kontakt']))
   <label class="control-label col-sm-3 col-xs-2" for="email-field">Email:</label>
   <div class="controls col-xs-8 col-xs-offset-1">
      <?php echo '<input id="email-field" name="email-field" type="text" value="'.$GLOBALS['$formEmail'].'" class="hidden input-large edit-input">' ?>
-    <?php echo '<p class="edit-text">'.$GLOBALS['$formEmail'].'</p>' ?>
+    <?php echo '<p class="underline edit-text">'.$GLOBALS['$formEmail'].'</p>' ?>
   </div>
-
 
   <label class="control-label col-sm-3 col-xs-2" for="contact-field">Kontakt:</label>
   <div class="controls col-xs-8 col-xs-offset-1">
    <?php echo '<input id="contact-field" name="contact-field" type="text" value="'.$GLOBALS['$formContact'].'" class="hidden input-large edit-input">' ?>
-  	<?php echo '<p class="edit-text">'.$GLOBALS['$formContact'].'</p>' ?>
+  	<?php echo '<p class="underline edit-text">'.$GLOBALS['$formContact'].'</p>' ?>
   </div>
 
 
@@ -115,7 +114,7 @@ if(isset($_POST['kontakt']))
   <label class="control-label col-sm-3 col-xs-2" for="location-field">Lokacija:</label>
   <div class="controls col-xs-8 col-xs-offset-1">
       <?php echo '<input id="location-field" name="location-field" type="text" value="'.$GLOBALS['$formContact'].'" class="hidden input-large edit-input">' ?>
- 	<?php echo '<p class="edit-text">'.$GLOBALS['$formContact'].'</p>' ?>
+ 	<?php echo '<p class="underline edit-text">'.$GLOBALS['$formContact'].'</p>' ?>
   </div>
 
 <!-- PASSWORD CHANGE -->
@@ -136,7 +135,7 @@ if(isset($_POST['kontakt']))
   </div> 
 
 <!-- OVO TREBA SUBMITAT NOVE PODATKE -->
-  <div id="save" class="controls col-xs-1 col-sm-offset-4 col-xs-offset-1 hidden">
+  <div id="save" class="controls col-xs-1 col-sm-offset-2 col-xs-offset-3 hidden">
     <button name="save" class="red-button">Spremi</button>
   </div>
 
@@ -147,7 +146,11 @@ if(isset($_POST['kontakt']))
 </form>
 	</div>
 </div>
-<div class="container-ads col-xs-12" style="margin-top:50px;">
+
+  <h1 class="col-sm-6 col-md-offset-2 col-md-10" style="margin-top:30px; margin-bottom:0px; font-size:2.8em;">Moji oglasi</h1>
+  <hr class="col-sm-8 col-sm-offset-2" class="col-xs-12">
+
+<div class="container-ads col-xs-12" style="margin-top:20px; margin-bottom:200px;">
 <?php
   $owner = $_SESSION['username'];
   $query = "SELECT * FROM oglasi WHERE owner = '$owner'";
@@ -185,5 +188,10 @@ if(isset($_POST['kontakt']))
 ?>
 </div>
 </body>
-
+<footer>
+ <div class="signature col-xs-12" style="text-align:center;">
+  <p>Marko Ivanetić & Luka Gado</p>
+  <h4>© Copyright 2015 - Site tittle </h4>
+</div>
+</footer>
 </html>
