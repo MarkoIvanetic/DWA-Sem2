@@ -32,7 +32,7 @@ include 'includes/connection.php';
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700,600' rel='stylesheet' type='text/css'>
 
 </head>
-<body>
+<body class="profileBody">
 	 <header id="header">
       <div id='cssmenu' class='align-right'>
         <ul>

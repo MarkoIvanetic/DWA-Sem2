@@ -27,7 +27,7 @@ include 'includes/connection.php';
     <link href="css/navigation.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700,600' rel='stylesheet' type='text/css'>
   </head>
-  <body>
+  <body class="contactBody">
     <header id="header">
       <div id='cssmenu' class='align-right'>
         <ul>
@@ -49,23 +49,32 @@ include 'includes/connection.php';
     </ul>
   </div>
 </header>
-<div class="contact-container col-xs-12">
-  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
-    <div class="col-sm-6" style="height:500px;background:red;">
-      <div class="contact-image col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8" style="background:purple;height:150px">
-        <img src="res/zbea.png" class="img-circle">
-      </div>
-      <div class="col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8" style="background:yellow;height:200px"></div>
+<div class="col-xs-12">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 contact-container">
 
-
-    </div>
-    <div class="col-sm-6" style="height:500px;background:blue;">
-      <div class="contact-image col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8" style="background:purple;height:150px">
-        <img src="res/zbea.png" class="img-circle">
+    <div class="col-sm-6 grad">
+      <div class="contact-image col-xs-12">
+        <img src="res/grad.gif" class="img-circle">
       </div>
-      <div class="col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8" style="background:yellow;height:200px"></div>
+      <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 contact-text">
+            <h2>Marko Ivanetić</h2>
+            <h3>Front-end</h3>
+            <p>manna.grad@gmail.com</p>
+      </div>
     </div>
-  </div>
+
+    <div class="col-sm-6 gado">
+      <div class="contact-image col-xs-12">
+        <img src="res/gado.gif" class="img-circle">
+      </div>
+      <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 contact-text">
+            <h2>Luka Gado</h2>
+            <h3>Šupak</h3>
+            <p>luka.supak@gmail.com</p>
+      </div>
+      </div>
+    </div>
+  </div>  
 </div>
 </body>
 <footer>

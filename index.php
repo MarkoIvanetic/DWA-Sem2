@@ -26,8 +26,17 @@
     <![endif]-->
     <link href="css/navigation.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700,600' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+    window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#home';
+        window.location.reload();
+    }
+}
+    </script>
   </head>
   <body>
+    <div class="coverUp"></div>
     <header id="header">
       <div id='cssmenu' class='align-right'>
         <ul>
@@ -143,4 +152,9 @@
     </div>
    </footer>
   <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript">
+  if(window.location.hash) {
+  $(".coverUp").hide();
+}
+  </script>
   </html>
