@@ -154,7 +154,6 @@
             </div>
           </div>
           <div class="control-group">
-            <label for="file">Odaberite sliku:</label> <input type="file" name="image" id="image"> <br />
             <div class="controls">
               <input type="submit" class="red-button col-xs-4" name="submit" value="Predaj oglas" />
             </div>
@@ -169,8 +168,8 @@
         
          $title = $_POST['ad-title'];
          $keywords = $_POST['radios'];
-         $category = "nema kategorije";
          $description = $_POST['ad-desc'];
+		 $location = $_POST['selectbasic'];
          $contact = $_POST['ad-contact'];
          $owner = $_SESSION['username'];
          $owner_id = $_SESSION['id'];
@@ -181,47 +180,42 @@
          $description = mysqli_real_escape_string($db, $description);
          $contact = mysqli_real_escape_string($db, $contact);
         
-         function save_image($name, $image, $owner_id)
-         {
-          global $db;
-          $query = "INSERT INTO slike (id, ad_id, image, image_name) VALUES (NULL, '$owner_id', '$image', '$name')";
-          $result = mysqli_query($db, $query);
-          if($result)
-          {
-           echo "<br />Slika je uspješno uploadana. <br />";
-           return true;
-         }else{
-           echo "<br /> Slika nije uploadana.  <br />";
-           return false;
-         }
-        }
-          // ZA SPREMANJE SLIKE U FOLDER
-          $uploadDir = 'images/'; //Image Upload Folder
-          $fileName = $_FILES['image']['name'];
-          $tmpName  = $_FILES['image']['tmp_name'];
-          $fileSize = $_FILES['image']['size'];
-          $fileType = $_FILES['image']['type'];
-          
-                      // ZA UPLOAD SLIKE
-          $image = addslashes($_FILES['image']['tmp_name']);
-          $name = addslashes($_FILES['image']['name']);
-          $image = file_get_contents($image);
-          $image = base64_encode($image);
-        
-          $query = "INSERT INTO `oglasnik`.`oglasi` (`id` ,`owner` ,`title`, `category`, `description`, `keywords`, `contact`, `date`) VALUES (NULL, '$owner', '$title', '$category', '$description', '$keywords', '$contact', now() )";
-          $result = mysqli_query($db, $query);
-          if($result && ($image == NULL))
-          {
-            echo "Uspješno ste predali oglas bez slike!";
-              return true; // Uspjeh
-            }
-            if($result && save_image($name, $image, $owner_id)){
-              echo "Uspješno ste predali oglas!";
-              return true; // Uspjeh
-            }else{
-              return false; // BUUUU
-            }
-          }
+		function is_empty($title, $keywords, $description){
+			if(empty($title) || empty($keywords) || empty($description))
+			{
+				echo "Sva polja označena zvjezdicom moraju biti popunjena!";
+				return false;
+			}else{
+				return true;
+			}
+		}
+		
+		function ad_submit($title, $keywords, $description, $location, $contact, $owner)
+		{
+			global $db;
+			$query = "INSERT INTO `oglasnik`.`oglasi` ( `id` ,`owner` ,`title` ,`location` ,`description` ,`keywords` ,`contact` ,`date`) 
+						VALUES (NULL, '$owner', '$title', '$location', '$description', '$keywords', '$contact', now() )";
+				$result = mysqli_query($db, $query);
+			  if($result)
+			    {
+				echo "Uspješno ste predali!";
+				 return true; // Uspjeh
+				}else{
+					return false;
+				}
+		}
+		
+		
+		//Tunesto zajebava
+        if(is_empty($title, $keywords, $description) && ad_submit($title, $keywords, $description, $location, $contact, $owner))
+		{
+				echo "TOOO";
+			}else{
+				echo " NE";
+			}
+
+		}
+         
           ?>
     </div>
   </body>

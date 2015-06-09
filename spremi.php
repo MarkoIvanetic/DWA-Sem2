@@ -5,7 +5,7 @@
 <body>
 
 
-			<?php
+		<?php
 				include 'includes/connection.php';
 				session_start(); 
 					
@@ -17,6 +17,19 @@
 				$kontaktbroj = 0;
 				$email = $_POST['email'];
 				$vercode = $_POST['vercode'];
+				
+				
+				//Provjera da li su inputi prazni
+				function is_empty($password, $username, $email){
+					if(empty($password) || empty($username) || empty($email))
+					{
+						echo 'Sva polja moraju biti popunjena! </br>';
+						header("Refresh:2;url=registracija.php;");
+						return false;
+					}else{
+						return true;
+					}
+				}
 				
 				// Provjera CAPTCHA
 				function is_valid_captcha($vercode){
@@ -72,7 +85,7 @@
 				}
 				
 				// Početak učitavanja
-				if (is_valid_email($email) && is_valid_password($password,$password2) && is_valid_captcha($vercode))
+				if (is_valid_email($email) && is_valid_password($password,$password2) && is_valid_captcha($vercode) && is_empty($password, $username, $email))
 				{
 					if (create_user($username, $password, $kontaktbroj, $email)) {
 						 echo 'Uspješno ste se registrirali!';
@@ -82,9 +95,7 @@
 					  header("url=registracija.php");
 					}
 				}
-
-				
-							?>
+				?>
 </body>
 
 </html>
