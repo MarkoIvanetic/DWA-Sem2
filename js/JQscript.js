@@ -21,6 +21,7 @@ if ($(window).width() < 992) {
   $('.ads-front').height(maxHeight);
   }
 
+
   $('.site-title').click(function(){
     window.location.replace("index.php");
   });
