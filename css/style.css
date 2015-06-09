@@ -244,6 +244,9 @@ form div{
 .profile-form .controls{
   display: inline;
 }
+.active-checkbox{
+  background-color: #39b1cc;
+}
 
 #mainForm label{
   padding-top: 0px;

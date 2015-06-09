@@ -31,7 +31,7 @@ if ($(window).width() < 992) {
 
 
   //main page filter by tag
-  $("input[name=radios]:radio").change(function () {
+  $(".indexBody input[name=radios]:radio").change(function () {
     $(".ads-front").slideDown(200);
     $(".ads-front-container input[value='"+$(this).val()+"']").closest(".ads-front").slideUp(100);
     $('html, body').stop().animate({

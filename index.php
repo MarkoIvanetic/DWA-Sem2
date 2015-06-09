@@ -35,7 +35,7 @@
 }
     </script>
   </head>
-  <body>
+  <body class="indexBody">
     <div class="coverUp"></div>
     <header id="header">
       <div id='cssmenu' class='align-right'>
