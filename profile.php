@@ -65,7 +65,7 @@ $GLOBALS['$formLocation'] = "";
 
 while($row = mysqli_fetch_array($result))
 		{
-			$GLOBALS['$formEmail'] = $row['username'];
+			
 
 			$GLOBALS['$formEmail'] = $row['email'];
 
@@ -73,23 +73,11 @@ while($row = mysqli_fetch_array($result))
 			$GLOBALS['$formLocation'] = $row['kontaktbroj'];} else  {$GLOBALS['$formLocation'] = "N/A";}
 		}
 
-if(isset($_POST['kontakt']))
-{
-	$novi_kontakt = $_POST['kontakt'];
-	$sql = "UPDATE korisnici SET kontaktbroj = '$novi_kontakt' WHERE username = '$owner'";
-	$result = mysqli_query($db, $sql);
-	if(!result)
-	{
-		echo "Greška pri unošenju novog broja!";
-	}else{
-		echo "Uspješno ste promjenili kontakt broj!";
-		header("Refresh:1;url=profile.php");
-	}
-}
+
 ?>
 <div class="container-fluid">
 	<div class="col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6 active-checkbox infoChanger">
-	<form class="form-horizontal profile-form" role="form">
+	<form class="form-horizontal profile-form" action="profile.php" method="POST" role="form">
 <fieldset>
 
 <legend>
@@ -97,11 +85,15 @@ if(isset($_POST['kontakt']))
 </legend>
 
 
+
   <label class="control-label col-sm-3 col-xs-2" for="email-field">Email:</label>
   <div class="controls col-xs-8 col-xs-offset-1">
      <?php echo '<input id="email-field" name="email-field" type="text" value="'.$GLOBALS['$formEmail'].'" class="hidden input-large edit-input">' ?>
     <?php echo '<p class="underline edit-text">'.$GLOBALS['$formEmail'].'</p>' ?>
   </div>
+
+
+
 
   <label class="control-label col-sm-3 col-xs-2" for="contact-field">Kontakt:</label>
   <div class="controls col-xs-8 col-xs-offset-1">
@@ -119,14 +111,9 @@ if(isset($_POST['kontakt']))
 
 <!-- PASSWORD CHANGE -->
 <div class="hidden passchange">
-  <label class="control-label col-sm-3 col-xs-2" for="location-field">Stara Lozinka:</label>
+    <label class="control-label col-sm-3 col-xs-2" for="password-field">Nova Lozinka:</label>
   <div class="controls col-xs-8 col-xs-offset-1">
-      <input id="location-field" name="location-field" type="text" class="input-large edit-input">
-  </div>
-
-    <label class="control-label col-sm-3 col-xs-2" for="location-field">Nova Lozinka:</label>
-  <div class="controls col-xs-8 col-xs-offset-1">
-      <input id="location-field" name="location-field" type="text" class="input-large edit-input">
+      <input id="password-field" name="password-field" type="password" class="input-large edit-input">
   </div>
 </div>
   <!-- BUTTONS -->
@@ -136,7 +123,7 @@ if(isset($_POST['kontakt']))
 
 <!-- OVO TREBA SUBMITAT NOVE PODATKE -->
   <div id="save" class="controls col-xs-1 col-sm-offset-2 col-xs-offset-3 hidden">
-    <button name="save" class="red-button">Spremi</button>
+    <input type="submit" name="spremi" value="Spremi" class="red-button"></button>
   </div>
 
    <div id="quit" class="controls col-xs-1 col-xs-offset-1 hidden">
@@ -146,6 +133,58 @@ if(isset($_POST['kontakt']))
 </form>
 	</div>
 </div>
+
+<?php
+if(isset($_POST['spremi'])){
+  
+include 'includes/connection.php';
+
+  $email = mysqli_real_escape_string($db, $_POST['email-field']);
+  $kontakt = mysqli_real_escape_string($db, $_POST['contact-field']);
+  $lokacija = mysqli_real_escape_string($db, $_POST['location-field']);
+  $password = mysqli_real_escape_string($db, $_POST['password-field']);
+
+  
+
+  function is_empty_email($email){
+    global $db;
+    if(!empty($email)){
+      $sql = "UPDATE korisnici SET email = '$email' WHERE owner = '$owner'";
+      $result = mysqli_query($db, $sql);
+      if(!result){
+         echo "Greska pri unošenju novog Emaila!";
+        }else{
+        echo "Uspješno ste promjenili email adresu!";
+        header('Refresh:2;url=profile.php');
+      }
+    }
+  }
+
+  function is_empty_contact($kontakt){
+    
+    global $db;
+    if(empty($kontakt)){
+      return false;
+    }else{
+      $sql = "UPDATE korisnici SET kontaktbroj='21312312' WHERE username='$owner'";
+      $result = mysqli_query($db, $sql);
+      if(!result){
+        echo "Kontakt broj nije promijenjen!<br/>";
+        return false;
+      }else{
+        echo "Kontakt broj je promijenjen!<br/>";
+        header('Refresh:2;url=profile.php');
+        return true;
+      }
+    }
+  }
+
+
+  is_empty_email($email);
+
+}
+
+?>
 
   <h1 class="col-sm-6 col-md-offset-2 col-md-10" style="margin-top:30px; margin-bottom:0px; font-size:2.8em;">Moji oglasi</h1>
   <hr class="col-sm-8 col-sm-offset-2" class="col-xs-12">
