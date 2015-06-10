@@ -127,17 +127,21 @@ include 'includes/connection.php';
     }
   }
 
-  $sql = "UPDATE korisnici SET email = '$email', password = '$password', kontaktbroj = '$kontakt' WHERE username = '$owner' ";
+  if($email == NULL){
+    echo "Email prazan!";
+  }else{
+    $sql = "UPDATE korisnici SET email = '$email', password = '$password', kontaktbroj = '$kontakt' WHERE username = '$owner' ";
       $result = mysqli_query($db, $sql);
       if(!result)
       {
         echo "Greška pri unošenju novog Emaila!";
       }else{
         echo "Uspješno ste promjenili Email adresu!";
-        echo "sam da ti bude lakse";
-    echo "Trenutni Email: $email  <br/> trenutni kontakt: $owner";
         header("Refresh:2;url=profile.php");
       }
+  }
+
+  
    
 
 }
