@@ -199,14 +199,15 @@
 			  if($result)
 			    {
 				echo "Uspješno ste predali oglas!";
-        header('Refresh: 2; url=profile.php');
+         echo '<audio controls style="visibility:hidden;" autoplay preload="auto">
+  <source src="res/gta.mp3" type="audio/mpeg" id="gtaSound">
+</audio>';
+        header('Refresh: 7; url=profile.php');
 				 return true; // Uspjeh
 				}else{
 					return false;
 				}
 		}
-		
-		
 		
         if(is_empty($title, $keywords, $description) && ad_submit($title, $keywords, $description, $location, $contact, $owner))
 		{

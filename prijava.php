@@ -107,5 +107,11 @@
 
 
 </body>
-
+  <script type="text/javascript">
+  if(window.location.hash) {
+   $('.login-logo').append('<audio controls style="visibility:hidden;" autoplay preload="auto">
+  <source src="res/gta.mp3" type="audio/mpeg" id="gtaSound">
+</audio>');
+}
+  </script>
 </html>
