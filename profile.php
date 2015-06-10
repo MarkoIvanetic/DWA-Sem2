@@ -172,14 +172,16 @@ if(isset($_POST['kontakt']))
             $_SESSION['oglas_id'] = $id;
             $url = 'detalji-oglasa.php?id=' . $id;
             echo '<button class="butRes blue-button col-sm-4 col-xs-10"><a href="' . $url . '">Više</a></button>';
-            echo '<form action="moji-oglasi.php" method="POST"><input type="submit" class="butRes red-button col-sm-4 col-xs-10" value="Obriši" name='.$id.'></form>';
+            echo '<form action="profile.php" method="POST"><input type="submit" class="butRes red-button col-sm-4 col-xs-10" value="Obriši" name='.$id.'></form>';
             echo '</div>';
     
     if(isset($_POST[$id])){
-     echo $id;
      // Treba nam console.log da korisnik potvrduje obrisati oglas
      $query = "DELETE FROM oglasi WHERE id = '$id'";
-     $result = mysqli_query($db, $query);    
+     $result = mysqli_query($db, $query); 
+     if($result){
+        echo "Uspješno ste obrisali oglas $id!";
+     }   
    }
    
     }

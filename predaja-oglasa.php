@@ -169,7 +169,7 @@
          $title = $_POST['ad-title'];
          $keywords = $_POST['radios'];
          $description = $_POST['ad-desc'];
-		 $location = $_POST['selectbasic'];
+		     $location = $_POST['selectbasic'];
          $contact = $_POST['ad-contact'];
          $owner = $_SESSION['username'];
          $owner_id = $_SESSION['id'];
@@ -198,7 +198,8 @@
 				$result = mysqli_query($db, $query);
 			  if($result)
 			    {
-				echo "Uspješno ste predali!";
+				echo "Uspješno ste predali oglas!";
+        header('Refresh: 2; url=profile.php');
 				 return true; // Uspjeh
 				}else{
 					return false;
@@ -206,12 +207,12 @@
 		}
 		
 		
-		//Tunesto zajebava
+		
         if(is_empty($title, $keywords, $description) && ad_submit($title, $keywords, $description, $location, $contact, $owner))
 		{
-				echo "TOOO";
+        return true;
 			}else{
-				echo " NE";
+				echo "Nešto je pošlo po zlu!";
 			}
 
 		}

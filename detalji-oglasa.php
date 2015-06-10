@@ -69,7 +69,7 @@
              echo '<h3 class="col-xs-6"><u>Kontakt:</u> '.$row['contact'].'</h3>';
              echo '<h3 class="col-xs-6"><u>Lokacija:</u> Zagreb</h3>';
           
-           echo '<button class="red-button red-button-front col-xs-12"><a style="color:white; text-decoration:none;" href="index.php">Povratak na početnu</a></button>';
+           echo '<button class="red-button red-button-front col-xs-12"><a style="color:white; text-decoration:none;" href="profile.php">Povratak na profil</a></button>';
           echo '</div>';
           }
           ?>
