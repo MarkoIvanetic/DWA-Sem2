@@ -31,29 +31,30 @@ include 'includes/connection.php';
     <link href="css/navigation.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700,600' rel='stylesheet' type='text/css'>
 
-</head>
-<body class="profileBody">
-	 <header id="header">
+  </head>
+  <body class="profileBody">
+    <header id="header">
       <div id='cssmenu' class='align-right'>
         <ul>
           <!-- <li class='has-sub'><a href="#" id="user-profile"> -->
           <?php 
-            if(isset($_SESSION['username']))
-             {echo " <li class='active has-sub'><a href='#'' id='user-profile'>" . $_SESSION['username'] . "</a>";
-            echo "<ul><li><a href='profile.php'>Moj profil</a></li><li id='logout'><a href='logout.php'>Logout</a></li></ul></li>";
-            }
-            if(!isset($_SESSION['username'])) 
-            { echo '<li><a href="prijava.php">LOGIN</a></li>';} 
-            ?>
-          <li><a href='kontakt.php'>KONTAKT</a></li>
-          <li class=''><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
-          <li><a href='index.php'>POČETNA</a></li>
-          <li class='site-title hidden-xs'>
-            <h3>SITE TITLE</h3>
-          </li>
-        </ul>
-      </div>
-    </header>
+          if(isset($_SESSION['username']))
+           {echo " <li class='active has-sub'><a href='#'' id='user-profile'>" . $_SESSION['username'] . "</a>";
+         echo "<ul><li><a href='profile.php'>Moj profil</a></li><li id='logout'><a href='logout.php'>Logout</a></li></ul></li>";
+       }
+       if(!isset($_SESSION['username'])) 
+        { echo '<li><a href="prijava.php">LOGIN</a></li>';} 
+      ?>
+      <li><a href='kontakt.php'>KONTAKT</a></li>
+      <li class=''><a href='predaja-oglasa.php'>PREDAJ OGLAS</a></li>
+      <li><a href='index.php'>POČETNA</a></li>
+      <li class='site-title hidden-xs'>
+        <h3>SITE TITLE</h3>
+      </li>
+    </ul>
+  </div>
+</header>
+
 
 <?php
 $owner = $_SESSION['username'];
@@ -61,44 +62,61 @@ $sql = "SELECT * FROM korisnici WHERE username = '$owner'";
 $result = mysqli_query($db, $sql);
 
 while($row = mysqli_fetch_array($result))
-    {
-      
+{
+  $email = $row['email'];
+  $kontakt = $row['kontaktbroj'];
+}
 
-      $email = $row['email'];
-      $kontakt = $row['kontaktbroj'];
-
-    }
-    echo "sam da ti bude lakse";
-    echo "Trenutni Email: $email  <br/> trenutni kontakt: $kontakt";
 
 ?>
-	
-	<form action="profile.php" method="POST" role="form">
+<div class="container-fluid">
+  <div class="col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6 infoChanger">
+   <form class="container-fluid" action="profile.php" method="POST" role="form">
+    <fieldset>
+      <legend>
+        <?php echo $_SESSION['username'];?>
+      </legend>
 
-    <legend>
-      <?php echo $_SESSION['username'];?>
-    </legend>
+      <label class="control-label col-sm-3 col-xs-2" for="email">Email:</label>
+      <div class="controls col-xs-8 col-xs-offset-1">
+        <?php echo '<input type="email" id="email" name="email" value="'.$email.'" class="hidden input-large edit-input">' ?>
+        <?php echo '<p class="underline edit-text">'.$email.'</p>' ?>
+      </div>
 
-    <label for="email">Email:</label>
-      <input type="email" id="email" name="email" /> <br/>
+      <label class="control-label col-sm-3 col-xs-2" for="kontakt">Kontakt:</label>
+      <div class="controls col-xs-8 col-xs-offset-1">
+        <?php echo '<input id="kontakt" name="kontakt" type="text" value="'.$kontakt.'" class="hidden input-large edit-input">' ?>
+        <?php echo '<p class="underline edit-text">'.$kontakt.'</p>' ?>
+      </div>
 
-    <label for="kontakt">Kontakt:</label>
-      <input type="text" id="kontakt" name="kontakt" /> <br/>
+      <div class="hidden passchange">
+        <label class="control-label col-sm-3 col-xs-2" for="lozinka">Nova Lozinka:</label>
+        <div class="controls col-xs-8 col-xs-offset-1">
+          <input type="password" id="lozinka" name="lozinka" class="input-large edit-input"/> 
+        </div>
+      </div>
 
-    <label for="lozinka">Lozinka:</label>
-      <input type="password" id="lozinka" name="lozinka" /> <br/><br/>
+    <div id="izmjeni" class="controls col-xs-3 col-sm-offset-4 col-xs-offset-2">
+    <button name="izmjeni" class="red-button">Izmjeni podatke</button>
+    </div> 
 
-    <input type="submit" value="Spremi" name="submit"/>
+      <div id="save" class="controls col-xs-1 col-sm-offset-2 col-xs-offset-3 hidden">
+        <input type="submit" class="red-button" value="Spremi" name="submit"/>
+      </div>
 
-
-
-</form>
+      <div id="quit" class="controls col-xs-1 col-xs-offset-1 hidden">
+        <button name="quit" class="red-button">Odustani</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
 
 
 <?php
 if(isset($_POST['submit'])){
-  
-include 'includes/connection.php';
+
+  include 'includes/connection.php';
 
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $kontakt = mysqli_real_escape_string($db, $_POST['kontakt']);
@@ -113,81 +131,78 @@ include 'includes/connection.php';
     if(!empty($email)){
      $sql = "UPDATE korisnici SET email = '$email' WHERE username = '$owner' ";
      $result = mysqli_query($db, $sql);
-      if(!result){
-        echo "Greška";
-      }else{
-        echo "Uspješno ste promjenili Email adresu!";
-        echo "sam da ti bude lakse";
-        echo "Trenutni Email: $email  <br/> trenutni kontakt: $owner";
-        header("Refresh:2;url=profile.php");
-      }
-
+     if(!result){
+      echo "Greška";
     }else{
-      return false;
+      echo "Uspješno ste promjenili Email adresu!";
+      echo "sam da ti bude lakse";
+      echo "Trenutni Email: $email  <br/> trenutni kontakt: $owner";
+      header("Refresh:2;url=profile.php");
     }
-  }
 
-  if($email == NULL){
-    echo "Email prazan!";
   }else{
-    $sql = "UPDATE korisnici SET email = '$email', password = '$password', kontaktbroj = '$kontakt' WHERE username = '$owner' ";
-      $result = mysqli_query($db, $sql);
-      if(!result)
-      {
-        echo "Greška pri unošenju novog Emaila!";
-      }else{
-        echo "Uspješno ste promjenili Email adresu!";
-        header("Refresh:2;url=profile.php");
-      }
+    return false;
   }
+}
 
-  
-   
+if($email == NULL){
+  echo "Email prazan!";
+}else{
+  $sql = "UPDATE korisnici SET email = '$email', password = '$password', kontaktbroj = '$kontakt' WHERE username = '$owner' ";
+  $result = mysqli_query($db, $sql);
+  if(!result)
+  {
+    echo "Greška pri unošenju novog Emaila!";
+  }else{
+    echo "Uspješno ste promjenili Email adresu!";
+    header("Refresh:2;url=profile.php");
+  }
+}
 
 }
 
 ?>
 
-  <h1 class="col-sm-6 col-md-offset-2 col-md-10" style="margin-top:30px; margin-bottom:0px; font-size:2.8em;">Moji oglasi</h1>
-  <hr class="col-sm-8 col-sm-offset-2" class="col-xs-12">
+<h1 class="col-sm-6 col-md-offset-2 col-md-10" style="margin-top:30px; margin-bottom:0px; font-size:2.8em;">Moji oglasi</h1>
+<hr class="col-sm-8 col-sm-offset-2" class="col-xs-12">
 
 <div class="container-ads col-xs-12" style="margin-top:20px; margin-bottom:200px;">
-<?php
+  <?php
   $owner = $_SESSION['username'];
   $query = "SELECT * FROM oglasi WHERE owner = '$owner'";
   $result = mysqli_query($db, $query);
-   echo '<div class="ads-front-container col-sm-6 col-md-offset-2 col-md-10">';
-   while($row = mysqli_fetch_array($result))
-    {
+  echo '<div class="ads-front-container col-sm-6 col-md-offset-2 col-md-10">';
+  while($row = mysqli_fetch_array($result))
+  {
     $id = $row['id'];
     
-            $date = new DateTime($row['date']);
-            echo '<div class="ads-front col-sm-6 col-md-4">';
-            echo '<h2 class="col-xs-12">' .$row['title']. '</h2>';
-            echo '<h3 class="col-xs-12"><a>'.$row['owner'].'</a> - Zagreb, <span>'.$date->format('d.m.Y').'</span></h3>';
-            echo '<p class="col-xs-12">'.$row['description'].'</p>';
-            echo '<input type="text" value="obuca" hidden>';
-            
+    $date = new DateTime($row['date']);
+    echo '<div class="ads-front col-sm-6 col-md-4">';
+    echo '<h2 class="col-xs-12">' .$row['title']. '</h2>';
+    echo '<h3 class="col-xs-12"><a>'.$row['owner'].'</a> - Zagreb, <span>'.$date->format('d.m.Y').'</span></h3>';
+    echo '<p class="col-xs-12">'.$row['description'].'</p>';
+    echo '<input type="text" value="obuca" hidden>';
+
           //Stvaranje URL-a
-            $id = $row['id'];
-            $_SESSION['oglas_id'] = $id;
-            $url = 'detalji-oglasa.php?id=' . $id;
-            echo '<button class="butRes blue-button col-sm-4 col-xs-10"><a href="' . $url . '">Više</a></button>';
-            echo '<form action="profile.php" method="POST"><input type="submit" class="butRes red-button col-sm-4 col-xs-10" value="Obriši" name='.$id.'></form>';
-            echo '</div>';
+    $id = $row['id'];
+    $_SESSION['oglas_id'] = $id;
+    $url = 'detalji-oglasa.php?id=' . $id;
+    echo '<button class="butRes blue-button col-sm-4 col-xs-10"><a href="' . $url . '">Više</a></button>';
+    echo '<form action="profile.php" method="POST"><input type="submit" class="butRes red-button col-sm-4 col-xs-10" value="Obriši" name='.$id.'></form>';
+    echo '</div>';
     
     if(isset($_POST[$id])){
      // Treba nam console.log da korisnik potvrduje obrisati oglas
      $query = "DELETE FROM oglasi WHERE id = '$id'";
      $result = mysqli_query($db, $query); 
      if($result){
-        echo "Uspješno ste obrisali oglas $id!";
-     }   
-   }
-   
-    }
-  echo '</div>';
- 
+      echo "Uspješno ste obrisali oglas $id!";
+    }   
+  }
+
+}
+echo '</div>';
+
 ?>
 </div>
 </body>

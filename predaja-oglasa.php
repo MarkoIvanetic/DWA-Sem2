@@ -1,4 +1,5 @@
 <?php
+  error_reporting(0);
   session_start();
   include 'includes/connection.php';
     if(!isset($_SESSION['username'])){ //if login in session is not set
@@ -198,7 +199,9 @@
 				$result = mysqli_query($db, $query);
 			  if($result)
 			    {
-				echo "Uspješno ste predali oglas!";
+				echo "<h2 class='col-xs-4' style='color:green;'>Uspješno ste predali oglas!</br>
+        <img src='res/success.png' class='col-xs-8 col-xs-offset-1'></img>
+        </h2>";
          echo '<audio controls style="visibility:hidden;" autoplay preload="auto">
   <source src="res/gta.mp3" type="audio/mpeg" id="gtaSound">
 </audio>';
