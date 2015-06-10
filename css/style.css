@@ -6,7 +6,7 @@ html {
   font-family: 'Titillium Web', sans-serif;
 }
 body {
-	font-size: 16px;
+  font-size: 16px;
 }
 input[type="text"], input[type="password"] {
   padding: 8px 0px 8px 7px;
@@ -18,7 +18,7 @@ input[type="text"], input[type="password"] {
   height: 20px;
 }
 .navbar{
-	font-size: 14px;
+  font-size: 14px;
       position: relative;
     min-height: 1px
 }
@@ -218,7 +218,18 @@ form div{
   border-left:4px solid #f8f8f8;
   height: 270px;
 
-
+}
+.profileBody .blue-button{
+  padding: 12px;
+}
+.regBody .blue-button{
+  padding: 12px;
+}
+.profileBody .red-button{
+  padding: 10px;
+}
+.regBody .red-button{
+  padding: 10px;
 }
 .controls img{
   font-size: 1.2em;

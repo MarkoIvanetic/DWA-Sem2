@@ -20,7 +20,7 @@
     <link href="css/navigation.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700,600' rel='stylesheet' type='text/css'>
 </head>
-<body class="col-xs-12">
+<body class="col-xs-12 profileBody">
 	<div class="login-logo col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">SITE NAME</div>
 	<div class="login-FormContainer col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
 		<div class="col-md-6 login-inputs">
