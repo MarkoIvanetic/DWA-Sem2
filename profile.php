@@ -59,128 +59,86 @@ include 'includes/connection.php';
 $owner = $_SESSION['username'];
 $sql = "SELECT * FROM korisnici WHERE username = '$owner'";
 $result = mysqli_query($db, $sql);
-$GLOBALS['$formEmail'] = "";
-$GLOBALS['$formContact'] = "";
-$GLOBALS['$formLocation'] = "";
 
 while($row = mysqli_fetch_array($result))
-		{
-			
+    {
+      
 
-			$GLOBALS['$formEmail'] = $row['email'];
+      $email = $row['email'];
+      $kontakt = $row['kontaktbroj'];
 
-			if ($row['kontaktbroj']!=''){
-			$GLOBALS['$formLocation'] = $row['kontaktbroj'];} else  {$GLOBALS['$formLocation'] = "N/A";}
-		}
-
+    }
+    echo "sam da ti bude lakse";
+    echo "Trenutni Email: $email  <br/> trenutni kontakt: $kontakt";
 
 ?>
-<div class="container-fluid">
-	<div class="col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6 active-checkbox infoChanger">
-	<form class="form-horizontal profile-form" action="profile.php" method="POST" role="form">
-<fieldset>
+	
+	<form action="profile.php" method="POST" role="form">
 
-<legend>
-	<?php echo $_SESSION['username'];?>
-</legend>
+    <legend>
+      <?php echo $_SESSION['username'];?>
+    </legend>
 
+    <label for="email">Email:</label>
+      <input type="email" id="email" name="email" /> <br/>
 
+    <label for="kontakt">Kontakt:</label>
+      <input type="text" id="kontakt" name="kontakt" /> <br/>
 
-  <label class="control-label col-sm-3 col-xs-2" for="email-field">Email:</label>
-  <div class="controls col-xs-8 col-xs-offset-1">
-     <?php echo '<input id="email-field" name="email-field" type="text" value="'.$GLOBALS['$formEmail'].'" class="hidden input-large edit-input">' ?>
-    <?php echo '<p class="underline edit-text">'.$GLOBALS['$formEmail'].'</p>' ?>
-  </div>
+    <label for="lozinka">Lozinka:</label>
+      <input type="password" id="lozinka" name="lozinka" /> <br/><br/>
 
-
-
-
-  <label class="control-label col-sm-3 col-xs-2" for="contact-field">Kontakt:</label>
-  <div class="controls col-xs-8 col-xs-offset-1">
-   <?php echo '<input id="contact-field" name="contact-field" type="text" value="'.$GLOBALS['$formContact'].'" class="hidden input-large edit-input">' ?>
-  	<?php echo '<p class="underline edit-text">'.$GLOBALS['$formContact'].'</p>' ?>
-  </div>
+    <input type="submit" value="Spremi" name="submit"/>
 
 
 
-  <label class="control-label col-sm-3 col-xs-2" for="location-field">Lokacija:</label>
-  <div class="controls col-xs-8 col-xs-offset-1">
-      <?php echo '<input id="location-field" name="location-field" type="text" value="'.$GLOBALS['$formContact'].'" class="hidden input-large edit-input">' ?>
- 	<?php echo '<p class="underline edit-text">'.$GLOBALS['$formContact'].'</p>' ?>
-  </div>
-
-<!-- PASSWORD CHANGE -->
-<div class="hidden passchange">
-    <label class="control-label col-sm-3 col-xs-2" for="password-field">Nova Lozinka:</label>
-  <div class="controls col-xs-8 col-xs-offset-1">
-      <input id="password-field" name="password-field" type="password" class="input-large edit-input">
-  </div>
-</div>
-  <!-- BUTTONS -->
-  <div id="izmjeni" class="controls col-xs-3 col-sm-offset-4 col-xs-offset-2">
-    <button name="izmjeni" class="red-button">Izmjeni podatke</button>
-  </div> 
-
-<!-- OVO TREBA SUBMITAT NOVE PODATKE -->
-  <div id="save" class="controls col-xs-1 col-sm-offset-2 col-xs-offset-3 hidden">
-    <input type="submit" name="spremi" value="Spremi" class="red-button"></button>
-  </div>
-
-   <div id="quit" class="controls col-xs-1 col-xs-offset-1 hidden">
-    <button name="quit" class="red-button">Odustani</button>
-  </div>
-</fieldset>
 </form>
-	</div>
-</div>
+
 
 <?php
-if(isset($_POST['spremi'])){
+if(isset($_POST['submit'])){
   
 include 'includes/connection.php';
 
-  $email = mysqli_real_escape_string($db, $_POST['email-field']);
-  $kontakt = mysqli_real_escape_string($db, $_POST['contact-field']);
-  $lokacija = mysqli_real_escape_string($db, $_POST['location-field']);
-  $password = mysqli_real_escape_string($db, $_POST['password-field']);
-
+  $email = mysqli_real_escape_string($db, $_POST['email']);
+  $kontakt = mysqli_real_escape_string($db, $_POST['kontakt']);
+  $password = mysqli_real_escape_string($db, $_POST['lozinka']);
+  $password = md5($password);
   
 
-  function is_empty_email($email){
+///// NECE I NECE
+
+  function empty_email($email){
     global $db;
     if(!empty($email)){
-      $sql = "UPDATE korisnici SET email = '$email' WHERE owner = '$owner'";
-      $result = mysqli_query($db, $sql);
+     $sql = "UPDATE korisnici SET email = '$email' WHERE username = '$owner' ";
+     $result = mysqli_query($db, $sql);
       if(!result){
-         echo "Greska pri unošenju novog Emaila!";
-        }else{
-        echo "Uspješno ste promjenili email adresu!";
-        header('Refresh:2;url=profile.php');
-      }
-    }
-  }
-
-  function is_empty_contact($kontakt){
-    
-    global $db;
-    if(empty($kontakt)){
-      return false;
-    }else{
-      $sql = "UPDATE korisnici SET kontaktbroj='21312312' WHERE username='$owner'";
-      $result = mysqli_query($db, $sql);
-      if(!result){
-        echo "Kontakt broj nije promijenjen!<br/>";
-        return false;
+        echo "Greška";
       }else{
-        echo "Kontakt broj je promijenjen!<br/>";
-        header('Refresh:2;url=profile.php');
-        return true;
+        echo "Uspješno ste promjenili Email adresu!";
+        echo "sam da ti bude lakse";
+        echo "Trenutni Email: $email  <br/> trenutni kontakt: $owner";
+        header("Refresh:2;url=profile.php");
       }
+
+    }else{
+      return false;
     }
   }
 
-
-  is_empty_email($email);
+  $sql = "UPDATE korisnici SET email = '$email', password = '$password', kontaktbroj = '$kontakt' WHERE username = '$owner' ";
+      $result = mysqli_query($db, $sql);
+      if(!result)
+      {
+        echo "Greška pri unošenju novog Emaila!";
+      }else{
+        echo "Uspješno ste promjenili Email adresu!";
+        echo "sam da ti bude lakse";
+    echo "Trenutni Email: $email  <br/> trenutni kontakt: $owner";
+        header("Refresh:2;url=profile.php");
+      }
+   
 
 }
 

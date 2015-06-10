@@ -42,6 +42,16 @@
 			return true;
 		}
 	}
+
+	//duljina passworda
+	function pass_length($password){
+		if(strlen($password) < 6){
+			echo "Lozinka mora imati više od 6 znakova!";
+			return false;
+		}else{
+			return true;
+		}
+	}
 	
 				// Funkcija za provjeru emaila
 	function is_valid_email($email){
@@ -85,7 +95,7 @@
 					}
 					
 				// Početak učitavanja
-					if (is_valid_email($email) && is_valid_password($password,$password2) && is_valid_captcha($vercode) && is_empty($password, $username, $email))
+					if (is_valid_email($email) && pass_length($password) && is_valid_password($password,$password2) && is_valid_captcha($vercode) && is_empty($password, $username, $email))
 					{
 						if (create_user($username, $password, $kontaktbroj, $email)) {
 							echo 'Uspješno ste se registrirali!';
