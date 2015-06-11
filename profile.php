@@ -121,7 +121,6 @@ if(isset($_POST['submit'])){
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $kontakt = mysqli_real_escape_string($db, $_POST['kontakt']);
   $password = mysqli_real_escape_string($db, $_POST['lozinka']);
-  $password = md5($password);
   
 
 ///// NECE I NECE
@@ -145,19 +144,47 @@ if(isset($_POST['submit'])){
   }
 }
 
-if($email == NULL){
-  echo "Email prazan!";
-}else{
-  $sql = "UPDATE korisnici SET email = '$email', password = '$password', kontaktbroj = '$kontakt' WHERE username = '$owner' ";
-  $result = mysqli_query($db, $sql);
-  if(!result)
-  {
-    echo "Greška pri unošenju novog Emaila!";
-  }else{
-    echo "Uspješno ste promjenili Email adresu!";
-    header("Refresh:2;url=profile.php");
-  }
-}
+		if($email == NULL){
+		  echo "";
+		}else{
+		  $sql = "UPDATE korisnici SET email = '$email' WHERE username = '$owner' ";
+		  $result = mysqli_query($db, $sql);
+		  if(!result)
+		  {
+		    echo "Greška pri unošenju novog Emaila!<br/>";
+		  }else{
+		    echo "Uspješno ste promjenili Email adresu!<br/>";
+		    header("Refresh:2;url=profile.php");
+		  }
+		}
+
+		if($kontakt == NULL){
+			echo "";
+		}else{
+		  $sql = "UPDATE korisnici SET kontaktbroj = '$kontakt' WHERE username = '$owner' ";
+		  $result = mysqli_query($db, $sql);
+		  if(!result)
+		  {
+		    echo "Greška pri unošenju novog kontakta!<br/>";
+		  }else{
+		    echo "Uspješno ste promjenili kontakt!<br/>";
+		    header("Refresh:2;url=profile.php");
+		  }
+		}
+
+		if($password == NULL){
+			echo "";
+		}else{
+			$password = md5($password);
+			$sql = "UPDATE korisnici SET password = '$password' WHERE username = '$owner' ";
+			$reuslt = mysqli_query($db, $sql);
+			if(!result){
+				echo "Greška pri unošenju nove lozinke!<br/>";
+			}else{
+				echo "Uspješno ste promjenili lozinku!<br/>";
+				header("Refresh:2;url=profile.php");
+			}
+		}
 
 }
 
