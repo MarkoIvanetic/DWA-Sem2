@@ -1,5 +1,6 @@
 <?php
   session_start();
+    error_reporting(0);
   include 'includes/connection.php';
   $id = htmlspecialchars($_GET["id"]);
   $sql = "SELECT * FROM oglasi WHERE id = '$id'";

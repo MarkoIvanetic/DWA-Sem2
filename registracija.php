@@ -1,5 +1,6 @@
 <?php
 session_start();
+  error_reporting(0);
 include 'includes/connection.php';
   if(isset($_SESSION['username'])){ //if login in session is not set
   	header("Location: index.php");

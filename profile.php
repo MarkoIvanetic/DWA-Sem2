@@ -1,5 +1,6 @@
 <?php
 session_start();
+  error_reporting(0);
 include 'includes/connection.php';
   if(!isset($_SESSION['username'])){ //if login in session is not set
   	header("Location: prijava.php");
@@ -58,7 +59,7 @@ include 'includes/connection.php';
 
 <?php
 $owner = $_SESSION['username'];
-$sql = "SELECT * FROM korisnici WHERE username = '$owner'";
+$sql = "SELECT * FROM `korisnici` WHERE username = '$owner'";
 $result = mysqli_query($db, $sql);
 
 while($row = mysqli_fetch_array($result))
@@ -66,7 +67,6 @@ while($row = mysqli_fetch_array($result))
   $email = $row['email'];
   $kontakt = $row['kontaktbroj'];
 }
-
 
 ?>
 <div class="container-fluid">
@@ -133,9 +133,7 @@ if(isset($_POST['submit'])){
      if(!result){
       echo "Greška";
     }else{
-      echo "Uspješno ste promjenili Email adresu!";
-      echo "sam da ti bude lakse";
-      echo "Trenutni Email: $email  <br/> trenutni kontakt: $owner";
+      echo "<h1 class='col-xs-6 col-xs-offset-3'>Uspješno ste promjenili Email adresu!</h1>";
       header("Refresh:2;url=profile.php");
     }
 
@@ -151,7 +149,7 @@ if(isset($_POST['submit'])){
 		  $result = mysqli_query($db, $sql);
 		  if(!result)
 		  {
-		    echo "Greška pri unošenju novog Emaila!<br/>";
+		    echo "<h1 class='col-xs-6 col-xs-offset-3'>Greška pri unošenju novog Emaila!</h1>";
 		  }else{
 		    echo "Uspješno ste promjenili Email adresu!<br/>";
 		    header("Refresh:2;url=profile.php");
@@ -165,9 +163,9 @@ if(isset($_POST['submit'])){
 		  $result = mysqli_query($db, $sql);
 		  if(!result)
 		  {
-		    echo "Greška pri unošenju novog kontakta!<br/>";
+		    echo "<h1 class='col-xs-6 col-xs-offset-3'>Greška pri unošenju novog kontakta!</h1>";
 		  }else{
-		    echo "Uspješno ste promjenili kontakt!<br/>";
+		    echo "<h1 class='col-xs-6 col-xs-offset-3'>Uspješno ste promjenili kontakt!</h1>";
 		    header("Refresh:2;url=profile.php");
 		  }
 		}
@@ -179,9 +177,9 @@ if(isset($_POST['submit'])){
 			$sql = "UPDATE korisnici SET password = '$password' WHERE username = '$owner' ";
 			$reuslt = mysqli_query($db, $sql);
 			if(!result){
-				echo "Greška pri unošenju nove lozinke!<br/>";
+				echo "<h1 class='col-xs-6 col-xs-offset-3'>Greška pri unošenju nove lozinke!</h1>";
 			}else{
-				echo "Uspješno ste promjenili lozinku!<br/>";
+				echo "<h1 class='col-xs-6 col-xs-offset-3'>Uspješno ste promjenili lozinku!</h1>";
 				header("Refresh:2;url=profile.php");
 			}
 		}
@@ -223,7 +221,7 @@ if(isset($_POST['submit'])){
      $query = "DELETE FROM oglasi WHERE id = '$id'";
      $result = mysqli_query($db, $query); 
      if($result){
-      echo "Uspješno ste obrisali oglas $id!";
+      echo "<h1 class='col-xs-6 col-xs-offset-3'>Uspješno ste obrisali oglas $id!</h1>";
     }   
   }
 

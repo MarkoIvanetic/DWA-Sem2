@@ -98,7 +98,9 @@
 					if (is_valid_email($email) && pass_length($password) && is_valid_password($password,$password2) && is_valid_captcha($vercode) && is_empty($password, $username, $email))
 					{
 						if (create_user($username, $password, $kontaktbroj, $email)) {
-							echo 'Uspješno ste se registrirali!';
+							echo '<h1 class="col-xs-6 col-xs-offset-3" style="text-align:center;color:green;">Uspješno ste se registrirali!</h1>';
+                            echo '<h3 class="col-xs-6 col-xs-offset-3" style="text-align:center;color:green;">Pričekajte</h3>';
+							
 							echo '<audio controls style="visibility:hidden;" autoplay preload="auto">
 							<source src="res/regSnoop.mp3" type="audio/mpeg" id="gtaSound">
 							</audio>';

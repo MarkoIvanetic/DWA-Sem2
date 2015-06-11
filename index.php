@@ -1,5 +1,6 @@
 <?php
   session_start();
+    error_reporting(0);
   include 'includes/connection.php';
   ?>
 <!doctype html>
@@ -107,13 +108,6 @@
         </div>
       </div>
       <div class="ads-front-container onlyIndex col-sm-offset-1 col-sm-10 col-xs-8">
-        <div class="ads-front col-sm-6 col-md-4">
-          <h2 class="col-xs-12">Dajem kornjaču i akvarij</h2>
-          <h3 class="col-xs-12">Zagreb, <span>21.6.2015</span></h3>
-          <p class="col-xs-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur egestas risus ut tempor. Praesent eu fringilla nisl. Nullam blandit id nisi ac dapibus. Pellentesque laoreet, nisi vel mollis posuere, mi est fermentum mauris, quis tempus libero sem ullamcorper nisi.</p>
-          <input type="text" value="odjeca" hidden>
-          <button class="red-button-front red-button col-xs-6">Više</button>
-        </div>
         <?php
           $sql = "SELECT * FROM oglasi ORDER BY `id` DESC";
           $result = mysqli_query($db, $sql);
@@ -129,9 +123,9 @@
             $date = new DateTime($row['date']);
             echo '<div class="ads-front col-sm-6 col-md-4">';
             echo '<h2 class="col-xs-12">' .$row['title']. '</h2>';
-            echo '<h3 class="col-xs-12"><a>'.$row['owner'].'</a> - Zagreb, <span>'.$date->format('d.m.Y').'</span></h3>';
+            echo '<h3 class="col-xs-12"><a>'.$row['owner'].'</a> - Grad Zagreb, <span>'.$date->format('d.m.Y').'</span></h3>';
             echo '<p class="col-xs-12 indexP">'.$row['description'].'</p>';
-            echo '<input type="text" value="obuca" hidden>';
+            echo '<input type="text" value="'.$row['keywords'].'" hidden>';
             
           //Stvaranje URL-a
             $id = $row['id'];
